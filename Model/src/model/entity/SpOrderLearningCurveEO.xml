@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SpOrderLearningCurveEO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="SP_ORDER_LEARNING_CURVE"
+  AliasName="SpOrderLearningCurveEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="model.entity.SpOrderLearningCurveEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="OlcId"
+    IsNotNull="true"
+    ColumnName="OLC_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_ORDER_LEARNING_CURVE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderSetupId"
+    ColumnName="ORDER_SETUP_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_ORDER_LEARNING_CURVE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DayNo"
+    ColumnName="DAY_NO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_ORDER_LEARNING_CURVE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LearningPercentage"
+    ColumnName="LEARNING_PERCENTAGE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_ORDER_LEARNING_CURVE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SP_ORDER_LEARNING_CURVE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_ORDER_LEARNING_CURVE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SP_ORDER_LEARNING_CURVE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_ORDER_LEARNING_CURVE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SpOrderSetupEO"
+    Association="model.entity.SpOrderLearningCurveR01Assoc"
+    AssociationEnd="model.entity.SpOrderLearningCurveR01Assoc.SpOrderSetupEO"
+    AssociationOtherEnd="model.entity.SpOrderLearningCurveR01Assoc.SpOrderLearningCurveEO"
+    Type="model.entity.SpOrderSetupEOImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SpOrderLearningCurvePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SP_ORDER_LEARNING_CURVE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.SpOrderLearningCurveEO.OlcId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SpOrderLearningCurveR01">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SP_ORDER_SETUP_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SP_ORDER_LEARNING_CURVE_R01"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.SpOrderLearningCurveEO.OrderSetupId"/>
+    </AttrArray>
+  </Key>
+</Entity>

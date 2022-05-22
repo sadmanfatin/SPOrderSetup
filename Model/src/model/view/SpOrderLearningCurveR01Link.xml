@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SpOrderLearningCurveR01Link"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  EntityAssociation="model.entity.SpOrderLearningCurveR01Assoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.view.SpOrderLearningCurveR01Link_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SpOrderSetupVO"
+    Cardinality="1"
+    Owner="model.view.SpOrderSetupVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SpOrderSetupVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.view.SpOrderSetupVO.OrderSetupId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SpOrderLearningCurveVO"
+    Cardinality="-1"
+    Owner="model.view.SpOrderLearningCurveVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SpOrderLearningCurveVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.view.SpOrderLearningCurveVO.OrderSetupId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

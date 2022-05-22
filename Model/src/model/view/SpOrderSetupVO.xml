@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SpOrderSetupVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.view.SpOrderSetupVORowImpl"
+  ComponentClass="model.view.SpOrderSetupVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery>
+    <![CDATA[SELECT SpOrderSetupEO.ORDER_SETUP_ID, 
+      ORDERS.LC_UNIT,  
+         APPS.ORG_ID_TO_ORG_NAME(ORDERS.LC_UNIT) LC_UNIT_NAME,    
+       SpOrderSetupEO.BPO_ID, 
+       SpOrderSetupEO.POC_ID, 
+       SpOrderSetupEO.ITEM_ID, 
+       SpOrderSetupEO.ORDER_TYPE, 
+       SpOrderSetupEO.PRODUCTION_UNIT, 
+         APPS.ORG_ID_TO_ORG_NAME(SpOrderSetupEO.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME,    
+       SpOrderSetupEO.PRODUCTIVITY, 
+       SpOrderSetupEO.SEWING_START_DATE, 
+       SpOrderSetupEO.SEWING_END_DATE, 
+       SpOrderSetupEO.PB_FLAG, 
+       SpOrderSetupEO.ORG_ID, 
+       SpOrderSetupEO.CREATION_DATE, 
+       SpOrderSetupEO.CREATED_BY, 
+       SpOrderSetupEO.LAST_UPDATED_DATE, 
+       SpOrderSetupEO.LAST_UPDATED_BY,
+       SpOrderSetupEO.SHIPDATE,
+       SpOrderSetupEO.ORDER_QTY,
+       ORDERS.BUYER_ID, 
+       APPS.XX_OM_BUYER_NAME_FOR_ID(ORDERS.BUYER_ID) BUYER_NAME ,
+       ORDERS.SEASON, 
+       ORDERS.STYLE ,   
+       ORDERS.COLOR, 
+       ORDERS.WASH_NAME , 
+       ORDERS.SHIPDATE CURRENT_SHIPDATE, 
+       ORDERS.ORDER_QTY CURRENT_ORDER_QTY             
+   FROM SP_ORDER_SETUP SpOrderSetupEO,
+   (  SELECT 
+           SV.POC_ID,
+           SV.BPO_ID,
+           SV.LC_UNIT,
+           SV.BUYER_ID,
+           SV.SEASON,
+           SV.STYLE,
+           SV.COLOR,
+           SV.WASH_NAME,
+           SV.ITEM_DESCRIPTION,
+           SV.SHIPDATE,
+           SV.ORDER_QTY        
+      FROM APPS.SP_ORDERS_V SV
+                 
+     ) ORDERS 
+where 1=1
+and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="SpOrderSetupEO"
+    Entity="model.entity.SpOrderSetupEO"/>
+  <ViewAttribute
+    Name="OrderSetupId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrderSetupId"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="ORDER_SETUP_ID"/>
+  <ViewAttribute
+    Name="LcUnit"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="LC_UNIT"
+    Expression="LC_UNIT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LcUnitName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LC_UNIT_NAME"
+    Expression="LC_UNIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BpoId"
+    PrecisionRule="true"
+    EntityAttrName="BpoId"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="BPO_ID"/>
+  <ViewAttribute
+    Name="PocId"
+    PrecisionRule="true"
+    EntityAttrName="PocId"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="POC_ID"/>
+  <ViewAttribute
+    Name="ItemId"
+    PrecisionRule="true"
+    EntityAttrName="ItemId"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="ITEM_ID"/>
+  <ViewAttribute
+    Name="OrderType"
+    PrecisionRule="true"
+    EntityAttrName="OrderType"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="ORDER_TYPE"/>
+  <ViewAttribute
+    Name="ProductionUnit"
+    PrecisionRule="true"
+    EntityAttrName="ProductionUnit"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="PRODUCTION_UNIT"/>
+  <ViewAttribute
+    Name="ProductionUnitName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PRODUCTION_UNIT_NAME"
+    Expression="PRODUCTION_UNIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Productivity"
+    PrecisionRule="true"
+    EntityAttrName="Productivity"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="PRODUCTIVITY"/>
+  <ViewAttribute
+    Name="SewingStartDate"
+    PrecisionRule="true"
+    EntityAttrName="SewingStartDate"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="SEWING_START_DATE"/>
+  <ViewAttribute
+    Name="SewingEndDate"
+    PrecisionRule="true"
+    EntityAttrName="SewingEndDate"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="SEWING_END_DATE"/>
+  <ViewAttribute
+    Name="PbFlag"
+    PrecisionRule="true"
+    EntityAttrName="PbFlag"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="PB_FLAG"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="Shipdate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="SHIPDATE"
+    Expression="SHIPDATE"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORDER_QTY"
+    Expression="ORDER_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON"
+    Expression="SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR"
+    Expression="COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH_NAME"
+    Expression="WASH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentShipdate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="CURRENT_SHIPDATE"
+    Expression="CURRENT_SHIPDATE"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentOrderQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CURRENT_ORDER_QTY"
+    Expression="CURRENT_ORDER_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="SpOrderLearningCurveVO"
+    ViewLink="model.view.SpOrderLearningCurveR01Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

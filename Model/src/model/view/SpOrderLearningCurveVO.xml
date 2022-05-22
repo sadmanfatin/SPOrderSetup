@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SpOrderLearningCurveVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  SelectList="SpOrderLearningCurveEO.OLC_ID, 
+       SpOrderLearningCurveEO.ORDER_SETUP_ID, 
+       SpOrderLearningCurveEO.DAY_NO, 
+       SpOrderLearningCurveEO.LEARNING_PERCENTAGE, 
+       SpOrderLearningCurveEO.LAST_UPDATED_BY, 
+       SpOrderLearningCurveEO.LAST_UPDATED_DATE"
+  FromList="SP_ORDER_LEARNING_CURVE SpOrderLearningCurveEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.view.SpOrderLearningCurveVORowImpl"
+  ComponentClass="model.view.SpOrderLearningCurveVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <EntityUsage
+    Name="SpOrderLearningCurveEO"
+    Entity="model.entity.SpOrderLearningCurveEO"/>
+  <ViewAttribute
+    Name="OlcId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OlcId"
+    EntityUsage="SpOrderLearningCurveEO"
+    AliasName="OLC_ID"/>
+  <ViewAttribute
+    Name="OrderSetupId"
+    PrecisionRule="true"
+    EntityAttrName="OrderSetupId"
+    EntityUsage="SpOrderLearningCurveEO"
+    AliasName="ORDER_SETUP_ID"/>
+  <ViewAttribute
+    Name="DayNo"
+    PrecisionRule="true"
+    EntityAttrName="DayNo"
+    EntityUsage="SpOrderLearningCurveEO"
+    AliasName="DAY_NO"/>
+  <ViewAttribute
+    Name="LearningPercentage"
+    PrecisionRule="true"
+    EntityAttrName="LearningPercentage"
+    EntityUsage="SpOrderLearningCurveEO"
+    AliasName="LEARNING_PERCENTAGE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="SpOrderLearningCurveEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="SpOrderLearningCurveEO"
+    AliasName="LAST_UPDATED_DATE"/>
+</ViewObject>

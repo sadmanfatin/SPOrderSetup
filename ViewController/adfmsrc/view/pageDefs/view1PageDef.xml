@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="view1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SpOrderSetupVO1" RangeSize="15"
+              DataControl="AppModuleDataControl" id="SpOrderSetupVO1Iterator"/>
+    <searchRegion Binds="SpOrderSetupVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SpOrderSetupVO1Query"/>
+    <iterator Binds="SpOrderLearningCurveVO1" RangeSize="10"
+              DataControl="AppModuleDataControl"
+              id="SpOrderLearningCurveVO1Iterator"/>
+    <searchRegion Binds="SpOrderLearningCurveVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SpOrderLearningCurveVO1Query"/>
+    <invokeAction id="setSessionValue" Binds="setSessionValues"
+                  Refresh="always"/>
+    <iterator Binds="PopulateOrdersVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="PopulateOrdersVO1Iterator"/>
+    <searchRegion Binds="PopulateOrdersVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PopulateOrdersVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SpOrderSetupVO1Iterator" id="SpOrderSetupVO1">
+      <nodeDefinition DefName="model.view.SpOrderSetupVO"
+                      Name="SpOrderSetupVO10">
+        <AttrNames>
+          <Item Value="OrderSetupId"/>
+          <Item Value="BpoId"/>
+          <Item Value="PocId"/>
+          <Item Value="ItemId"/>
+          <Item Value="OrderType"/>
+          <Item Value="ProductionUnit"/>
+          <Item Value="Productivity"/>
+          <Item Value="SewingStartDate"/>
+          <Item Value="SewingEndDate"/>
+          <Item Value="PbFlag"/>
+          <Item Value="OrgId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SpOrderLearningCurveVO1Iterator"
+          id="SpOrderLearningCurveVO1">
+      <nodeDefinition DefName="model.view.SpOrderLearningCurveVO"
+                      Name="SpOrderLearningCurveVO10">
+        <AttrNames>
+          <Item Value="OlcId"/>
+          <Item Value="OrderSetupId"/>
+          <Item Value="DayNo"/>
+          <Item Value="LearningPercentage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SpOrderSetupVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SpOrderSetupVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SpOrderLearningCurveVO1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SpOrderLearningCurveVO1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respApplId" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="PopulateOrdersVO1Iterator" id="PopulateOrdersVO1">
+      <nodeDefinition DefName="model.view.PopulateOrdersVO"
+                      Name="PopulateOrdersVO10">
+        <AttrNames>
+          <Item Value="PocId"/>
+          <Item Value="BpoId"/>
+          <Item Value="LcUnit"/>
+          <Item Value="BuyerId"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Bpo"/>
+          <Item Value="OrderQty"/>
+          <Item Value="Shipdate"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="VersionDate"/>
+          <Item Value="SelectOrder" Binds="SelectOrder"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="PopulateOrdersVO1Iterator" id="SelectOrder"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectOrder"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>
