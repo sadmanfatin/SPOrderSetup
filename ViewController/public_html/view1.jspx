@@ -18,19 +18,25 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t1">
+                    <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                      text="CreateInsert"
+                                      disabled="#{!bindings.CreateInsert.enabled}"
+                                      id="cb1" visible="false"/>
+                    <af:commandButton text="Populate Confirmed Orders"
+                                      id="cb6">
+                      <af:showPopupBehavior popupId="::p1"/>
+                    </af:commandButton>
                     <af:commandButton actionListener="#{bindings.Delete.execute}"
                                       text="Delete"
                                       disabled="#{!bindings.Delete.enabled}"
                                       id="cb2"/>
-                    <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
-                                      text="CreateInsert"
-                                      disabled="#{!bindings.CreateInsert.enabled}"
-                                      id="cb1"/>
                     <af:commandButton actionListener="#{bindings.Commit.execute}"
-                                      text="Commit"
-                                      disabled="#{!bindings.Commit.enabled}"
+                                      text="Save"
                                       id="cb5"/>
-                    <af:commandButton text="Populate Confirmed Orders" id="cb6"/>
+                    <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
+                                      text="add other order"
+                                      disabled="#{!bindings.CreateInsert2.enabled}"
+                                      id="cb8" action="add other order"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -45,7 +51,8 @@
                           selectedRowKeys="#{bindings.SpOrderSetupVO1.collectionModel.selectedRow}"
                           selectionListener="#{bindings.SpOrderSetupVO1.collectionModel.makeCurrent}"
                           rowSelection="single" id="t3"
-                          partialTriggers="::cb1 ::cb2">
+                          partialTriggers="::cb1 ::cb2 ::cb6"
+                          binding="#{ManagedBean.orderSetupTable}">
                   <af:column sortProperty="OrderSetupId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.SpOrderSetupVO1.hints.OrderSetupId.label}"
@@ -62,10 +69,10 @@
                                         pattern="#{bindings.SpOrderSetupVO1.hints.OrderSetupId.format}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column sortProperty="BpoId" filterable="true"
+                  <af:column sortProperty="BpoId"
                              sortable="true"
                              headerText="#{bindings.SpOrderSetupVO1.hints.BpoId.label}"
-                             id="c5">
+                             id="c5" filterable="true">
                     <af:inputText value="#{row.bindings.BpoId.inputValue}"
                                   label="#{bindings.SpOrderSetupVO1.hints.BpoId.label}"
                                   required="#{bindings.SpOrderSetupVO1.hints.BpoId.mandatory}"
@@ -74,8 +81,6 @@
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.BpoId.tooltip}"
                                   id="it8">
                       <f:validator binding="#{row.bindings.BpoId.validator}"/>
-                      <af:convertNumber groupingUsed="false"
-                                        pattern="#{bindings.SpOrderSetupVO1.hints.BpoId.format}"/>
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="PocId" filterable="true"
@@ -226,14 +231,14 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t2">
-                    <af:commandButton actionListener="#{bindings.Delete1.execute}"
-                                      text="Delete1"
-                                      disabled="#{!bindings.Delete1.enabled}"
-                                      id="cb4"/>
                     <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
-                                      text="CreateInsert1"
+                                      text="Add"
                                       disabled="#{!bindings.CreateInsert1.enabled}"
                                       id="cb3"/>
+                    <af:commandButton actionListener="#{bindings.Delete1.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete1.enabled}"
+                                      id="cb4"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -249,7 +254,8 @@
                           selectedRowKeys="#{bindings.SpOrderLearningCurveVO1.collectionModel.selectedRow}"
                           selectionListener="#{bindings.SpOrderLearningCurveVO1.collectionModel.makeCurrent}"
                           rowSelection="single" id="t4"
-                          partialTriggers="::cb3 ::cb4">
+                          partialTriggers="::cb3 ::cb4 :::pc1:t3"
+                          binding="#{ManagedBean.learningCurveTable}">
                   <af:column sortProperty="OlcId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.label}"
@@ -534,48 +540,6 @@
                       <f:validator binding="#{row.bindings.VersionDate.validator}"/>
                       <af:convertDateTime pattern="#{bindings.PopulateOrdersVO1.hints.VersionDate.format}"/>
                     </af:inputDate>
-                  </af:column>
-                  <af:column sortProperty="StyleDescription" filterable="true"
-                             sortable="true"
-                             headerText="#{bindings.PopulateOrdersVO1.hints.StyleDescription.label}"
-                             id="c19">
-                    <af:inputText value="#{row.bindings.StyleDescription.inputValue}"
-                                  label="#{bindings.PopulateOrdersVO1.hints.StyleDescription.label}"
-                                  required="#{bindings.PopulateOrdersVO1.hints.StyleDescription.mandatory}"
-                                  columns="#{bindings.PopulateOrdersVO1.hints.StyleDescription.displayWidth}"
-                                  maximumLength="#{bindings.PopulateOrdersVO1.hints.StyleDescription.precision}"
-                                  shortDesc="#{bindings.PopulateOrdersVO1.hints.StyleDescription.tooltip}"
-                                  id="it25">
-                      <f:validator binding="#{row.bindings.StyleDescription.validator}"/>
-                    </af:inputText>
-                  </af:column>
-                  <af:column sortProperty="EndUser" filterable="true"
-                             sortable="true"
-                             headerText="#{bindings.PopulateOrdersVO1.hints.EndUser.label}"
-                             id="c17">
-                    <af:inputText value="#{row.bindings.EndUser.inputValue}"
-                                  label="#{bindings.PopulateOrdersVO1.hints.EndUser.label}"
-                                  required="#{bindings.PopulateOrdersVO1.hints.EndUser.mandatory}"
-                                  columns="#{bindings.PopulateOrdersVO1.hints.EndUser.displayWidth}"
-                                  maximumLength="#{bindings.PopulateOrdersVO1.hints.EndUser.precision}"
-                                  shortDesc="#{bindings.PopulateOrdersVO1.hints.EndUser.tooltip}"
-                                  id="it16">
-                      <f:validator binding="#{row.bindings.EndUser.validator}"/>
-                    </af:inputText>
-                  </af:column>
-                  <af:column sortProperty="ItemDescription" filterable="true"
-                             sortable="true"
-                             headerText="#{bindings.PopulateOrdersVO1.hints.ItemDescription.label}"
-                             id="c30">
-                    <af:inputText value="#{row.bindings.ItemDescription.inputValue}"
-                                  label="#{bindings.PopulateOrdersVO1.hints.ItemDescription.label}"
-                                  required="#{bindings.PopulateOrdersVO1.hints.ItemDescription.mandatory}"
-                                  columns="#{bindings.PopulateOrdersVO1.hints.ItemDescription.displayWidth}"
-                                  maximumLength="#{bindings.PopulateOrdersVO1.hints.ItemDescription.precision}"
-                                  shortDesc="#{bindings.PopulateOrdersVO1.hints.ItemDescription.tooltip}"
-                                  id="it24">
-                      <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
-                    </af:inputText>
                   </af:column>
                 </af:table>
               </af:panelCollection>

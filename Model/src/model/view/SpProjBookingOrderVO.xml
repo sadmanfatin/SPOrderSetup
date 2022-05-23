@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SpProjBookingOrderVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.view.SpProjBookingOrderVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="ProductionUnitLOV1"
+    ViewObjectName="model.lov.ProductionUnitLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BuyerLOV1"
+    ViewObjectName="model.lov.BuyerLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SeasonLOV1"
+    ViewObjectName="model.lov.SeasonLOV">
+    <ParameterMap>
+      <PIMap Variable="p_buyer_id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="OrderTypeLOV1"
+    ViewObjectName="model.lov.OrderTypeLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_LcUnitName"
+    ListVOName="ProductionUnitLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LcUnitName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="LcUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgName"/>
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BuyerName"
+    ListVOName="BuyerLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BuyerName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Season"
+    ListVOName="SeasonLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OrderType"
+    ListVOName="OrderTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OrderType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrderType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrderType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT SpProjBookingOrderEO.POC_ID, 
+       SpProjBookingOrderEO.BPO_ID, 
+       SpProjBookingOrderEO.BUYER_ID,
+         APPS.XX_OM_BUYER_NAME_FOR_ID( SpProjBookingOrderEO.BUYER_ID) BUYER_NAME ,
+       SpProjBookingOrderEO.STYLE, 
+       SpProjBookingOrderEO.SEASON, 
+       SpProjBookingOrderEO.COLOR, 
+       SpProjBookingOrderEO.WASH, 
+       SpProjBookingOrderEO.ORG_ID, 
+       SpProjBookingOrderEO.ORDER_QTY, 
+       SpProjBookingOrderEO.LC_UNIT, 
+       ORG_ID_TO_ORG_NAME(SpProjBookingOrderEO.LC_UNIT) LC_UNIT_NAME,
+       SpProjBookingOrderEO.CREATION_DATE, 
+       SpProjBookingOrderEO.CREATED_BY, 
+       SpProjBookingOrderEO.LAST_UPDATED_DATE, 
+       SpProjBookingOrderEO.LAST_UPDATED_BY, 
+       SpProjBookingOrderEO.BPO, 
+       SpProjBookingOrderEO.SHIPDATE, 
+       SpProjBookingOrderEO.ORDER_TYPE
+FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="SpProjBookingOrderEO"
+    Entity="model.entity.SpProjBookingOrderEO"/>
+  <ViewAttribute
+    Name="PocId"
+    PrecisionRule="true"
+    EntityAttrName="PocId"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="POC_ID"/>
+  <ViewAttribute
+    Name="BpoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BpoId"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="BPO_ID"/>
+  <ViewAttribute
+    Name="BuyerId"
+    PrecisionRule="true"
+    EntityAttrName="BuyerId"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="BUYER_ID"/>
+  <ViewAttribute
+    Name="BuyerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_BuyerName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    PrecisionRule="true"
+    EntityAttrName="Style"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="STYLE"/>
+  <ViewAttribute
+    Name="Season"
+    PrecisionRule="true"
+    EntityAttrName="Season"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="SEASON"
+    LOVName="LOV_Season">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    PrecisionRule="true"
+    EntityAttrName="Color"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="COLOR"/>
+  <ViewAttribute
+    Name="Wash"
+    PrecisionRule="true"
+    EntityAttrName="Wash"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="WASH"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="OrderQty"
+    PrecisionRule="true"
+    EntityAttrName="OrderQty"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="ORDER_QTY"/>
+  <ViewAttribute
+    Name="LcUnit"
+    PrecisionRule="true"
+    EntityAttrName="LcUnit"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="LC_UNIT"/>
+  <ViewAttribute
+    Name="LcUnitName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LC_UNIT_NAME"
+    Expression="LC_UNIT_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_LcUnitName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="Bpo"
+    PrecisionRule="true"
+    EntityAttrName="Bpo"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="BPO"/>
+  <ViewAttribute
+    Name="Shipdate"
+    PrecisionRule="true"
+    EntityAttrName="Shipdate"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="SHIPDATE"/>
+  <ViewAttribute
+    Name="OrderType"
+    PrecisionRule="true"
+    EntityAttrName="OrderType"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="ORDER_TYPE"
+    LOVName="LOV_OrderType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

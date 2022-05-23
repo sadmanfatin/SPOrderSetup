@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import model.service.common.AppModule;
 
+import model.view.PopulateOrdersVOImpl;
 import model.view.SpOrderLearningCurveVOImpl;
 import model.view.SpOrderSetupVOImpl;
 
@@ -91,5 +92,13 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getPopulateOrdersVO1() {
         return (ViewObjectImpl)findViewObject("PopulateOrdersVO1");
+    }
+
+    /**
+     * Container's getter for SpProjBookingOrderVO1.
+     * @return SpProjBookingOrderVO1
+     */
+    public ViewObjectImpl getSpProjBookingOrderVO1() {
+        return (ViewObjectImpl)findViewObject("SpProjBookingOrderVO1");
     }
 }

@@ -25,6 +25,9 @@
   <ViewUsage
     Name="PopulateOrdersVO1"
     ViewObjectName="model.view.PopulateOrdersVO"/>
+  <ViewUsage
+    Name="SpProjBookingOrderVO1"
+    ViewObjectName="model.view.SpProjBookingOrderVO"/>
   <ViewLinkUsage
     Name="SpOrderLearningCurveR01Link1"
     ViewLinkObjectName="model.view.SpOrderLearningCurveR01Link"

@@ -31,7 +31,7 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
             }
 
             public void put(PopulateOrdersVORowImpl obj, Object value) {
-                obj.setBpoId((Number)value);
+                obj.setBpoId((String)value);
             }
         }
         ,
@@ -257,15 +257,15 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
      * Gets the attribute value for the calculated attribute BpoId.
      * @return the BpoId
      */
-    public Number getBpoId() {
-        return (Number) getAttributeInternal(BPOID);
+    public String getBpoId() {
+        return (String) getAttributeInternal(BPOID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for the calculated attribute BpoId.
      * @param value value to set the  BpoId
      */
-    public void setBpoId(Number value) {
+    public void setBpoId(String value) {
         setAttributeInternal(BPOID, value);
     }
 

@@ -44,7 +44,7 @@ public class SpOrderSetupEOImpl extends EntityImpl {
             }
 
             public void put(SpOrderSetupEOImpl obj, Object value) {
-                obj.setBpoId((Number)value);
+                obj.setBpoId((String)value);
             }
         }
         ,
@@ -178,6 +178,26 @@ public class SpOrderSetupEOImpl extends EntityImpl {
             }
         }
         ,
+        Shipdate {
+            public Object get(SpOrderSetupEOImpl obj) {
+                return obj.getShipdate();
+            }
+
+            public void put(SpOrderSetupEOImpl obj, Object value) {
+                obj.setShipdate((Date)value);
+            }
+        }
+        ,
+        OrderQty {
+            public Object get(SpOrderSetupEOImpl obj) {
+                return obj.getOrderQty();
+            }
+
+            public void put(SpOrderSetupEOImpl obj, Object value) {
+                obj.setOrderQty((Number)value);
+            }
+        }
+        ,
         SpOrderLearningCurveEO {
             public Object get(SpOrderSetupEOImpl obj) {
                 return obj.getSpOrderLearningCurveEO();
@@ -231,6 +251,8 @@ public class SpOrderSetupEOImpl extends EntityImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
+    public static final int SHIPDATE = AttributesEnum.Shipdate.index();
+    public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int SPORDERLEARNINGCURVEEO = AttributesEnum.SpOrderLearningCurveEO.index();
 
     /**
@@ -270,15 +292,15 @@ public class SpOrderSetupEOImpl extends EntityImpl {
      * Gets the attribute value for BpoId, using the alias name BpoId.
      * @return the BpoId
      */
-    public Number getBpoId() {
-        return (Number)getAttributeInternal(BPOID);
+    public String getBpoId() {
+        return (String)getAttributeInternal(BPOID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for BpoId.
      * @param value value to set the BpoId
      */
-    public void setBpoId(Number value) {
+    public void setBpoId(String value) {
         setAttributeInternal(BPOID, value);
     }
 
@@ -488,6 +510,38 @@ public class SpOrderSetupEOImpl extends EntityImpl {
      */
     public void setLastUpdatedBy(Number value) {
         setAttributeInternal(LASTUPDATEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for Shipdate, using the alias name Shipdate.
+     * @return the Shipdate
+     */
+    public Date getShipdate() {
+        return (Date)getAttributeInternal(SHIPDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Shipdate.
+     * @param value value to set the Shipdate
+     */
+    public void setShipdate(Date value) {
+        setAttributeInternal(SHIPDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for OrderQty, using the alias name OrderQty.
+     * @return the OrderQty
+     */
+    public Number getOrderQty() {
+        return (Number)getAttributeInternal(ORDERQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OrderQty.
+     * @param value value to set the OrderQty
+     */
+    public void setOrderQty(Number value) {
+        setAttributeInternal(ORDERQTY, value);
     }
 
     /**

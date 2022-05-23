@@ -25,13 +25,10 @@
   </Properties>
   <SQLQuery>
     <![CDATA[SELECT SV.POC_ID,
-          --  SV.fob_id,
-          --  SV.SYSTEM_ID,
             SV.bpo_id,
             SV.LC_UNIT,
               APPS.ORG_ID_TO_ORG_NAME(SV.LC_UNIT) LC_UNIT_NAME,  
-               SV.LC_UNIT PRODUCTION_UNIT,
-              APPS.ORG_ID_TO_ORG_NAME(SV.LC_UNIT) PRODUCTION_UNIT_NAME,  
+              
             SV.BUYER_ID,
                APPS.XX_OM_BUYER_NAME_FOR_ID(SV.BUYER_ID) BUYER_NAME ,
             SV.SEASON,
@@ -41,8 +38,9 @@
              SV.shipDate,
             SV.COLOR,
             SV.WASH_NAME,
-            SV.VERSION_DATE
-                
+            SV.VERSION_DATE ,
+             SV.LC_UNIT PRODUCTION_UNIT,
+              APPS.ORG_ID_TO_ORG_NAME(SV.LC_UNIT) PRODUCTION_UNIT_NAME               
        FROM SP_ORDERS_V SV
       WHERE 1 = 1
       order by SV.poc_id desc,  SV.bpo_id]]>
@@ -68,11 +66,12 @@
     IsPersistent="false"
     IsNotNull="true"
     PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
     AliasName="BPO_ID"
     Expression="BPO_ID"
-    SQLType="NUMERIC">
+    SQLType="VARCHAR"
+    Precision="255">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -204,7 +203,7 @@
     ColumnType="DATE"
     AliasName="SHIPDATE"
     Expression="SHIPDATE"
-    SQLType="TIMESTAMP">
+    SQLType="DATE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
@@ -248,7 +247,7 @@
     ColumnType="DATE"
     AliasName="VERSION_DATE"
     Expression="VERSION_DATE"
-    SQLType="TIMESTAMP">
+    SQLType="DATE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
@@ -267,9 +266,8 @@
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="255"
     Type="oracle.jbo.domain.Number"
-    ColumnType="VARCHAR2"
+    ColumnType="NUMBER"
     AliasName="PRODUCTION_UNIT"
     Expression="PRODUCTION_UNIT"
     SQLType="NUMERIC"/>

@@ -55,7 +55,7 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
 
             public void put(SpOrderSetupVORowImpl obj, Object value) {
-                obj.setBpoId((Number)value);
+                obj.setBpoId((String)value);
             }
         }
         ,
@@ -199,26 +199,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        Shipdate {
-            public Object get(SpOrderSetupVORowImpl obj) {
-                return obj.getShipdate();
-            }
-
-            public void put(SpOrderSetupVORowImpl obj, Object value) {
-                obj.setShipdate((Date)value);
-            }
-        }
-        ,
-        OrderQty {
-            public Object get(SpOrderSetupVORowImpl obj) {
-                return obj.getOrderQty();
-            }
-
-            public void put(SpOrderSetupVORowImpl obj, Object value) {
-                obj.setOrderQty((Number)value);
-            }
-        }
-        ,
         BuyerId {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getBuyerId();
@@ -299,6 +279,26 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        OrderQty {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getOrderQty();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setOrderQty((Number)value);
+            }
+        }
+        ,
+        Shipdate {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getShipdate();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setShipdate((Date)value);
+            }
+        }
+        ,
         SpOrderLearningCurveVO {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getSpOrderLearningCurveVO();
@@ -355,8 +355,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
-    public static final int SHIPDATE = AttributesEnum.Shipdate.index();
-    public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int BUYERNAME = AttributesEnum.BuyerName.index();
     public static final int SEASON = AttributesEnum.Season.index();
@@ -365,6 +363,8 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int WASHNAME = AttributesEnum.WashName.index();
     public static final int CURRENTSHIPDATE = AttributesEnum.CurrentShipdate.index();
     public static final int CURRENTORDERQTY = AttributesEnum.CurrentOrderQty.index();
+    public static final int ORDERQTY = AttributesEnum.OrderQty.index();
+    public static final int SHIPDATE = AttributesEnum.Shipdate.index();
     public static final int SPORDERLEARNINGCURVEVO = AttributesEnum.SpOrderLearningCurveVO.index();
 
     /**
@@ -433,15 +433,15 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
      * Gets the attribute value for BPO_ID using the alias name BpoId.
      * @return the BPO_ID
      */
-    public Number getBpoId() {
-        return (Number) getAttributeInternal(BPOID);
+    public String getBpoId() {
+        return (String) getAttributeInternal(BPOID);
     }
 
     /**
      * Sets <code>value</code> as attribute value for BPO_ID using the alias name BpoId.
      * @param value value to set the BPO_ID
      */
-    public void setBpoId(Number value) {
+    public void setBpoId(String value) {
         setAttributeInternal(BPOID, value);
     }
 
@@ -669,37 +669,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
         setAttributeInternal(LASTUPDATEDBY, value);
     }
 
-    /**
-     * Gets the attribute value for the calculated attribute Shipdate.
-     * @return the Shipdate
-     */
-    public Date getShipdate() {
-        return (Date) getAttributeInternal(SHIPDATE);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute Shipdate.
-     * @param value value to set the  Shipdate
-     */
-    public void setShipdate(Date value) {
-        setAttributeInternal(SHIPDATE, value);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute OrderQty.
-     * @return the OrderQty
-     */
-    public Number getOrderQty() {
-        return (Number) getAttributeInternal(ORDERQTY);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute OrderQty.
-     * @param value value to set the  OrderQty
-     */
-    public void setOrderQty(Number value) {
-        setAttributeInternal(ORDERQTY, value);
-    }
 
     /**
      * Gets the attribute value for the calculated attribute BuyerId.
@@ -827,6 +796,38 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
      */
     public void setCurrentOrderQty(Number value) {
         setAttributeInternal(CURRENTORDERQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for ORDER_QTY using the alias name OrderQty.
+     * @return the ORDER_QTY
+     */
+    public Number getOrderQty() {
+        return (Number) getAttributeInternal(ORDERQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ORDER_QTY using the alias name OrderQty.
+     * @param value value to set the ORDER_QTY
+     */
+    public void setOrderQty(Number value) {
+        setAttributeInternal(ORDERQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for SHIPDATE using the alias name Shipdate.
+     * @return the SHIPDATE
+     */
+    public Date getShipdate() {
+        return (Date) getAttributeInternal(SHIPDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SHIPDATE using the alias name Shipdate.
+     * @param value value to set the SHIPDATE
+     */
+    public void setShipdate(Date value) {
+        setAttributeInternal(SHIPDATE, value);
     }
 
     /**

@@ -33,10 +33,11 @@
   <Attribute
     Name="BpoId"
     ColumnName="BPO_ID"
-    SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    TableName="SP_ORDER_SETUP">
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SP_ORDER_SETUP"
+    Precision="255">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -186,6 +187,28 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Shipdate"
+    ColumnName="SHIPDATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SP_ORDER_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderQty"
+    ColumnName="ORDER_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_ORDER_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SpOrderLearningCurveEO"
     Association="model.entity.SpOrderLearningCurveR01Assoc"
@@ -201,16 +224,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.entity.SpOrderSetupEO.OrderSetupId"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="SpOrderSetupU01">
-    <DesignTime>
-      <Attr Name="_isUnique" Value="true"/>
-      <Attr Name="_DBObjectName" Value="SP_ORDER_SETUP_U01"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.entity.SpOrderSetupEO.BpoId"/>
     </AttrArray>
   </Key>
 </Entity>

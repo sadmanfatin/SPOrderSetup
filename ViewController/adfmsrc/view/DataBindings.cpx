@@ -4,9 +4,11 @@
              Package="view" ClientType="Generic">
   <pageMap>
     <page path="/view1.jspx" usageId="view_view1PageDef"/>
+    <page path="/OtherOrder.jspx" usageId="view_OtherOrderPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_view1PageDef" path="view.pageDefs.view1PageDef"/>
+    <page id="view_OtherOrderPageDef" path="view.pageDefs.OtherOrderPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model.service"

@@ -19,6 +19,45 @@
       <to-value>#{viewScope.RespAppId}</to-value>
     </input-page-parameter>
   </view>
+  <view id="AddOtherOrder">
+    <page>/OtherOrder.jspx</page>
+    <input-page-parameter>
+      <from-value>add</from-value>
+      <to-value>#{viewScope.activityType}</to-value>
+    </input-page-parameter>
+  </view>
+  <view id="EditOtherOrder">
+    <page>/OtherOrder.jspx</page>
+    <input-page-parameter>
+      <from-value>edit</from-value>
+      <to-value>#{viewScope.activityType}</to-value>
+    </input-page-parameter>
+  </view>
+  <control-flow-rule id="__5">
+    <from-activity-id id="__6">view1</from-activity-id>
+    <control-flow-case id="__7">
+      <from-outcome id="__9">add other order</from-outcome>
+      <to-activity-id id="__8">AddOtherOrder</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__15">
+      <from-outcome id="__21">edit other other</from-outcome>
+      <to-activity-id id="__16">EditOtherOrder</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__10">
+    <from-activity-id id="__11">AddOtherOrder</from-activity-id>
+    <control-flow-case id="__12">
+      <from-outcome id="__14">return to view1</from-outcome>
+      <to-activity-id id="__13">view1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__17">
+    <from-activity-id id="__18">EditOtherOrder</from-activity-id>
+    <control-flow-case id="__20">
+      <from-outcome id="__22">return to view1</from-outcome>
+      <to-activity-id id="__19">view1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
   <managed-bean id="__2">
     <managed-bean-name id="__4">ManagedBean</managed-bean-name>
     <managed-bean-class id="__1">ManagedBean</managed-bean-class>

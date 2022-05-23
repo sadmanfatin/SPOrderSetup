@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="OtherOrderPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SpProjBookingOrderVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="SpProjBookingOrderVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="BpoId">
+      <AttrNames>
+        <Item Value="BpoId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SpProjBookingOrderVO1Iterator" StaticList="false"
+          Uses="LOV_OrderType" id="OrderType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="BuyerId">
+      <AttrNames>
+        <Item Value="BuyerId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SpProjBookingOrderVO1Iterator" StaticList="false"
+          Uses="LOV_BuyerName" id="BuyerName" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="Style">
+      <AttrNames>
+        <Item Value="Style"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SpProjBookingOrderVO1Iterator" StaticList="false"
+          Uses="LOV_Season" id="Season" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="Color">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="Wash">
+      <AttrNames>
+        <Item Value="Wash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="OrderQty">
+      <AttrNames>
+        <Item Value="OrderQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="LcUnit">
+      <AttrNames>
+        <Item Value="LcUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SpProjBookingOrderVO1Iterator" StaticList="false"
+          Uses="LOV_LcUnitName" id="LcUnitName" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="Bpo">
+      <AttrNames>
+        <Item Value="Bpo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="Shipdate">
+      <AttrNames>
+        <Item Value="Shipdate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SpProjBookingOrderVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -13,8 +13,78 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">164.29883</property>
+         name="y">231.14355</property>
       <property
-         name="x">616.0</property>
+         name="x">536.0</property>
    </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">AddOtherOrder</property>
+      <property
+         name="page">/OtherOrder.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>AddOtherOrder&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">129.53418</property>
+      <property
+         name="x">885.0</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">EditOtherOrder</property>
+      <property
+         name="page">/OtherOrder.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditOtherOrder&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">380.7412</property>
+      <property
+         name="x">879.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">add other order</property>
+      <property
+         name="sdm:polyPoints">R38,577.0,220.29297,842.7939,125.68359,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">return to view1</property>
+      <property
+         name="sdm:polyPoints">L54,844.0,132.6836,578.20355,227.29297,R46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="View2"
+      to="View4">
+      <property
+         name="fromOutcome">edit other other</property>
+      <property
+         name="sdm:polyPoints">R54,578.78754,234.29297,838.0,376.89062,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View4"
+      to="View2">
+      <property
+         name="fromOutcome">return to view1</property>
+      <property
+         name="sdm:polyPoints">L54,836.2071,383.89062,577.0,241.29297,R62</property>
+   </ControlFlowCase>
 </SDM>
