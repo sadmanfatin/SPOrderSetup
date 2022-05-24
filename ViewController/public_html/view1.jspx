@@ -63,40 +63,133 @@
                                   columns="#{bindings.SpOrderSetupVO1.hints.OrderSetupId.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.OrderSetupId.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.OrderSetupId.tooltip}"
-                                  id="it7">
+                                  id="it7" readOnly="true">
                       <f:validator binding="#{row.bindings.OrderSetupId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderSetupVO1.hints.OrderSetupId.format}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column sortProperty="BpoId"
-                             sortable="true"
-                             headerText="#{bindings.SpOrderSetupVO1.hints.BpoId.label}"
-                             id="c5" filterable="true">
+                  <af:column id="c36" align="center" sortable="true"
+                             filterable="true" width="40">
+                    <af:commandButton actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                      text="Edit"
+                                      disabled="#{!bindings.setCurrentRowWithKey.enabled}"
+                                      id="cb7" action="edit other order"
+                                      visible="#{row.bindings.OrderType.inputValue != 'Confirmed'}"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.OrderType.label}"
+                             id="c37" width="60">
+                    <af:inputText value="#{row.bindings.OrderType.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.OrderType.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.OrderType.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.OrderType.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.OrderType.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.OrderType.tooltip}"
+                                  id="it30" readOnly="true">
+                      <f:validator binding="#{row.bindings.OrderType.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.BpoId.label}"
+                             id="c35" sortable="true" sortProperty="BpoId"
+                             filterable="true" width="50">
                     <af:inputText value="#{row.bindings.BpoId.inputValue}"
                                   label="#{bindings.SpOrderSetupVO1.hints.BpoId.label}"
                                   required="#{bindings.SpOrderSetupVO1.hints.BpoId.mandatory}"
                                   columns="#{bindings.SpOrderSetupVO1.hints.BpoId.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.BpoId.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.BpoId.tooltip}"
-                                  id="it8">
+                                  id="it29" readOnly="true">
                       <f:validator binding="#{row.bindings.BpoId.validator}"/>
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="PocId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.SpOrderSetupVO1.hints.PocId.label}"
-                             id="c3">
+                             id="c3" width="50">
                     <af:inputText value="#{row.bindings.PocId.inputValue}"
                                   label="#{bindings.SpOrderSetupVO1.hints.PocId.label}"
                                   required="#{bindings.SpOrderSetupVO1.hints.PocId.mandatory}"
                                   columns="#{bindings.SpOrderSetupVO1.hints.PocId.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.PocId.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.PocId.tooltip}"
-                                  id="it9">
+                                  id="it9" readOnly="true">
                       <f:validator binding="#{row.bindings.PocId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderSetupVO1.hints.PocId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.BuyerId.label}"
+                             id="c5" visible="false">
+                    <af:inputText value="#{row.bindings.BuyerId.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.BuyerId.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.BuyerId.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.BuyerId.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.BuyerId.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.BuyerId.tooltip}"
+                                  id="it8" readOnly="true">
+                      <f:validator binding="#{row.bindings.BuyerId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.SpOrderSetupVO1.hints.BuyerId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.BuyerName.label}"
+                             id="c17" align="left">
+                    <af:inputText value="#{row.bindings.BuyerName.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.BuyerName.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.BuyerName.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.BuyerName.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.BuyerName.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.BuyerName.tooltip}"
+                                  id="it16" readOnly="true">
+                      <f:validator binding="#{row.bindings.BuyerName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.Season.label}"
+                             id="c19" align="left">
+                    <af:inputText value="#{row.bindings.Season.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.Season.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.Season.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.Season.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.Season.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.Season.tooltip}"
+                                  id="it24" readOnly="true">
+                      <f:validator binding="#{row.bindings.Season.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.Style.label}"
+                             id="c30" align="left">
+                    <af:inputText value="#{row.bindings.Style.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.Style.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.Style.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.Style.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.Style.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.Style.tooltip}"
+                                  id="it25" readOnly="true">
+                      <f:validator binding="#{row.bindings.Style.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.Color.label}"
+                             id="c32" align="left">
+                    <af:inputText value="#{row.bindings.Color.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.Color.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.Color.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.Color.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.Color.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.Color.tooltip}"
+                                  id="it27" readOnly="true">
+                      <f:validator binding="#{row.bindings.Color.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.WashName.label}"
+                             id="c33" align="left">
+                    <af:inputText value="#{row.bindings.WashName.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.WashName.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.WashName.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.WashName.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.WashName.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.WashName.tooltip}"
+                                  id="it28" readOnly="true">
+                      <f:validator binding="#{row.bindings.WashName.validator}"/>
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="ItemId" filterable="true"
@@ -109,25 +202,23 @@
                                   columns="#{bindings.SpOrderSetupVO1.hints.ItemId.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.ItemId.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.ItemId.tooltip}"
-                                  id="it6">
+                                  id="it6" readOnly="true">
                       <f:validator binding="#{row.bindings.ItemId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderSetupVO1.hints.ItemId.format}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column sortProperty="OrderType" filterable="true"
-                             sortable="true"
-                             headerText="#{bindings.SpOrderSetupVO1.hints.OrderType.label}"
-                             id="c4">
-                    <af:inputText value="#{row.bindings.OrderType.inputValue}"
-                                  label="#{bindings.SpOrderSetupVO1.hints.OrderType.label}"
-                                  required="#{bindings.SpOrderSetupVO1.hints.OrderType.mandatory}"
-                                  columns="#{bindings.SpOrderSetupVO1.hints.OrderType.displayWidth}"
-                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.OrderType.precision}"
-                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.OrderType.tooltip}"
-                                  id="it2">
-                      <f:validator binding="#{row.bindings.OrderType.validator}"/>
-                    </af:inputText>
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.Shipdate.label}"
+                             id="c34" sortable="true" filterable="true"
+                             sortProperty="Shipdate">
+                    <af:inputDate value="#{row.bindings.Shipdate.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.Shipdate.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.Shipdate.mandatory}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.Shipdate.tooltip}"
+                                  id="id9" readOnly="true">
+                      <f:validator binding="#{row.bindings.Shipdate.validator}"/>
+                      <af:convertDateTime/>
+                    </af:inputDate>
                   </af:column>
                   <af:column sortProperty="ProductionUnit" filterable="true"
                              sortable="true"
@@ -139,7 +230,7 @@
                                   columns="#{bindings.SpOrderSetupVO1.hints.ProductionUnit.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.ProductionUnit.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.ProductionUnit.tooltip}"
-                                  id="it3">
+                                  id="it3" readOnly="true">
                       <f:validator binding="#{row.bindings.ProductionUnit.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderSetupVO1.hints.ProductionUnit.format}"/>
@@ -155,7 +246,7 @@
                                   columns="#{bindings.SpOrderSetupVO1.hints.Productivity.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.Productivity.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.Productivity.tooltip}"
-                                  id="it1">
+                                  id="it1" readOnly="true">
                       <f:validator binding="#{row.bindings.Productivity.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderSetupVO1.hints.Productivity.format}"/>
@@ -198,14 +289,14 @@
                   <af:column sortProperty="PbFlag" filterable="true"
                              sortable="true"
                              headerText="#{bindings.SpOrderSetupVO1.hints.PbFlag.label}"
-                             id="c7">
+                             id="c7" visible="false">
                     <af:inputText value="#{row.bindings.PbFlag.inputValue}"
                                   label="#{bindings.SpOrderSetupVO1.hints.PbFlag.label}"
                                   required="#{bindings.SpOrderSetupVO1.hints.PbFlag.mandatory}"
                                   columns="#{bindings.SpOrderSetupVO1.hints.PbFlag.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.PbFlag.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.PbFlag.tooltip}"
-                                  id="it4">
+                                  id="it4" readOnly="true">
                       <f:validator binding="#{row.bindings.PbFlag.validator}"/>
                     </af:inputText>
                   </af:column>
@@ -219,7 +310,7 @@
                                   columns="#{bindings.SpOrderSetupVO1.hints.OrgId.displayWidth}"
                                   maximumLength="#{bindings.SpOrderSetupVO1.hints.OrgId.precision}"
                                   shortDesc="#{bindings.SpOrderSetupVO1.hints.OrgId.tooltip}"
-                                  id="it5">
+                                  id="it5" readOnly="true">
                       <f:validator binding="#{row.bindings.OrgId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderSetupVO1.hints.OrgId.format}"/>
@@ -259,14 +350,14 @@
                   <af:column sortProperty="OlcId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.label}"
-                             id="c12">
+                             id="c12" visible="false">
                     <af:inputText value="#{row.bindings.OlcId.inputValue}"
                                   label="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.label}"
                                   required="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.mandatory}"
                                   columns="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.displayWidth}"
                                   maximumLength="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.precision}"
                                   shortDesc="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.tooltip}"
-                                  id="it10">
+                                  id="it10" readOnly="false">
                       <f:validator binding="#{row.bindings.OlcId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderLearningCurveVO1.hints.OlcId.format}"/>
@@ -275,21 +366,21 @@
                   <af:column sortProperty="OrderSetupId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.SpOrderLearningCurveVO1.hints.OrderSetupId.label}"
-                             id="c13">
+                             id="c13" visible="false">
                     <af:inputText value="#{row.bindings.OrderSetupId.inputValue}"
                                   label="#{bindings.SpOrderLearningCurveVO1.hints.OrderSetupId.label}"
                                   required="#{bindings.SpOrderLearningCurveVO1.hints.OrderSetupId.mandatory}"
                                   columns="#{bindings.SpOrderLearningCurveVO1.hints.OrderSetupId.displayWidth}"
                                   maximumLength="#{bindings.SpOrderLearningCurveVO1.hints.OrderSetupId.precision}"
                                   shortDesc="#{bindings.SpOrderLearningCurveVO1.hints.OrderSetupId.tooltip}"
-                                  id="it12">
+                                  id="it12" readOnly="true">
                       <f:validator binding="#{row.bindings.OrderSetupId.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderLearningCurveVO1.hints.OrderSetupId.format}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column sortProperty="DayNo" filterable="true"
-                             sortable="true"
+                  <af:column sortProperty="DayNo" filterable="false"
+                             sortable="false"
                              headerText="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.label}"
                              id="c15">
                     <af:inputText value="#{row.bindings.DayNo.inputValue}"
@@ -298,14 +389,15 @@
                                   columns="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.displayWidth}"
                                   maximumLength="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.precision}"
                                   shortDesc="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.tooltip}"
-                                  id="it11">
+                                  id="it11" readOnly="false">
                       <f:validator binding="#{row.bindings.DayNo.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.format}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column sortProperty="LearningPercentage" filterable="true"
-                             sortable="true"
+                  <af:column sortProperty="LearningPercentage"
+                             filterable="false"
+                             sortable="false"
                              headerText="#{bindings.SpOrderLearningCurveVO1.hints.LearningPercentage.label}"
                              id="c14">
                     <af:inputText value="#{row.bindings.LearningPercentage.inputValue}"

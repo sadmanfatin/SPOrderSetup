@@ -73,7 +73,7 @@
       from="View2"
       to="View4">
       <property
-         name="fromOutcome">edit other other</property>
+         name="fromOutcome">edit other order</property>
       <property
          name="sdm:polyPoints">R54,578.78754,234.29297,838.0,376.89062,L46</property>
    </ControlFlowCase>

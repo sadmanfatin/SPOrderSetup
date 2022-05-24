@@ -21,7 +21,6 @@
     <![CDATA[SELECT SpOrderSetupEO.ORDER_SETUP_ID, 
       ORDERS.LC_UNIT,  
          APPS.ORG_ID_TO_ORG_NAME(ORDERS.LC_UNIT) LC_UNIT_NAME,    
-       SpOrderSetupEO.BPO_ID, 
        SpOrderSetupEO.POC_ID, 
        SpOrderSetupEO.ITEM_ID, 
        SpOrderSetupEO.ORDER_TYPE, 
@@ -36,8 +35,9 @@
        SpOrderSetupEO.CREATED_BY, 
        SpOrderSetupEO.LAST_UPDATED_DATE, 
        SpOrderSetupEO.LAST_UPDATED_BY,
-       SpOrderSetupEO.SHIPDATE,
        SpOrderSetupEO.ORDER_QTY,
+       SpOrderSetupEO.SHIPDATE,
+       SpOrderSetupEO.BPO_ID, 
        ORDERS.BUYER_ID, 
        APPS.XX_OM_BUYER_NAME_FOR_ID(ORDERS.BUYER_ID) BUYER_NAME ,
        ORDERS.SEASON, 
@@ -56,7 +56,6 @@
            SV.STYLE,
            SV.COLOR,
            SV.WASH_NAME,
-           SV.ITEM_DESCRIPTION,
            SV.SHIPDATE,
            SV.ORDER_QTY        
       FROM APPS.SP_ORDERS_V SV
@@ -102,12 +101,6 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewAttribute
-    Name="BpoId"
-    PrecisionRule="true"
-    EntityAttrName="BpoId"
-    EntityUsage="SpOrderSetupEO"
-    AliasName="BPO_ID"/>
   <ViewAttribute
     Name="PocId"
     PrecisionRule="true"
@@ -200,6 +193,24 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
     EntityAttrName="LastUpdatedBy"
     EntityUsage="SpOrderSetupEO"
     AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="OrderQty"
+    PrecisionRule="true"
+    EntityAttrName="OrderQty"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="ORDER_QTY"/>
+  <ViewAttribute
+    Name="Shipdate"
+    PrecisionRule="true"
+    EntityAttrName="Shipdate"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="SHIPDATE"/>
+  <ViewAttribute
+    Name="BpoId"
+    PrecisionRule="true"
+    EntityAttrName="BpoId"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="BPO_ID"/>
   <ViewAttribute
     Name="BuyerId"
     IsPersistent="false"
@@ -310,18 +321,6 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewAttribute
-    Name="OrderQty"
-    PrecisionRule="true"
-    EntityAttrName="OrderQty"
-    EntityUsage="SpOrderSetupEO"
-    AliasName="ORDER_QTY"/>
-  <ViewAttribute
-    Name="Shipdate"
-    PrecisionRule="true"
-    EntityAttrName="Shipdate"
-    EntityUsage="SpOrderSetupEO"
-    AliasName="SHIPDATE"/>
   <ViewLinkAccessor
     Name="SpOrderLearningCurveVO"
     ViewLink="model.view.SpOrderLearningCurveR01Link"

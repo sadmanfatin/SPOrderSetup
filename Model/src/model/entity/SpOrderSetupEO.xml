@@ -31,18 +31,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="BpoId"
-    ColumnName="BPO_ID"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="SP_ORDER_SETUP"
-    Precision="255">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="PocId"
     ColumnName="POC_ID"
     SQLType="NUMERIC"
@@ -209,6 +197,18 @@
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="BpoId"
+    Precision="200"
+    ColumnName="BPO_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SP_ORDER_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SpOrderLearningCurveEO"
     Association="model.entity.SpOrderLearningCurveR01Assoc"
@@ -225,5 +225,12 @@
     <AttrArray Name="Attributes">
       <Item Value="model.entity.SpOrderSetupEO.OrderSetupId"/>
     </AttrArray>
+  </Key>
+  <Key
+    Name="SpOrderSetupU01">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SP_ORDER_SETUP_U01"/>
+    </DesignTime>
   </Key>
 </Entity>

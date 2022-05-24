@@ -13,4 +13,10 @@ public class SpOrderSetupVOImpl extends ViewObjectImpl {
      */
     public SpOrderSetupVOImpl() {
     }
+
+    @Override
+    protected void create() {
+        super.create();
+      
+    }
 }

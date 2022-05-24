@@ -592,7 +592,7 @@ public class SpProjBookingOrderEOImpl extends EntityImpl {
         String bpoId = "PB" + sVal.toString();
 
         this.setBpoId(bpoId);
-
+        this.setPocId(new Number(0));
         try {
 
             this.setOrgId(new Number(orgId));

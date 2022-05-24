@@ -49,16 +49,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        BpoId {
-            public Object get(SpOrderSetupVORowImpl obj) {
-                return obj.getBpoId();
-            }
-
-            public void put(SpOrderSetupVORowImpl obj, Object value) {
-                obj.setBpoId((String)value);
-            }
-        }
-        ,
         PocId {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getPocId();
@@ -199,6 +189,36 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        OrderQty {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getOrderQty();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setOrderQty((Number)value);
+            }
+        }
+        ,
+        Shipdate {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getShipdate();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setShipdate((Date)value);
+            }
+        }
+        ,
+        BpoId {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getBpoId();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setBpoId((String)value);
+            }
+        }
+        ,
         BuyerId {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getBuyerId();
@@ -279,26 +299,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        OrderQty {
-            public Object get(SpOrderSetupVORowImpl obj) {
-                return obj.getOrderQty();
-            }
-
-            public void put(SpOrderSetupVORowImpl obj, Object value) {
-                obj.setOrderQty((Number)value);
-            }
-        }
-        ,
-        Shipdate {
-            public Object get(SpOrderSetupVORowImpl obj) {
-                return obj.getShipdate();
-            }
-
-            public void put(SpOrderSetupVORowImpl obj, Object value) {
-                obj.setShipdate((Date)value);
-            }
-        }
-        ,
         SpOrderLearningCurveVO {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getSpOrderLearningCurveVO();
@@ -340,7 +340,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int ORDERSETUPID = AttributesEnum.OrderSetupId.index();
     public static final int LCUNIT = AttributesEnum.LcUnit.index();
     public static final int LCUNITNAME = AttributesEnum.LcUnitName.index();
-    public static final int BPOID = AttributesEnum.BpoId.index();
     public static final int POCID = AttributesEnum.PocId.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();
     public static final int ORDERTYPE = AttributesEnum.OrderType.index();
@@ -355,6 +354,9 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
+    public static final int ORDERQTY = AttributesEnum.OrderQty.index();
+    public static final int SHIPDATE = AttributesEnum.Shipdate.index();
+    public static final int BPOID = AttributesEnum.BpoId.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int BUYERNAME = AttributesEnum.BuyerName.index();
     public static final int SEASON = AttributesEnum.Season.index();
@@ -363,8 +365,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int WASHNAME = AttributesEnum.WashName.index();
     public static final int CURRENTSHIPDATE = AttributesEnum.CurrentShipdate.index();
     public static final int CURRENTORDERQTY = AttributesEnum.CurrentOrderQty.index();
-    public static final int ORDERQTY = AttributesEnum.OrderQty.index();
-    public static final int SHIPDATE = AttributesEnum.Shipdate.index();
     public static final int SPORDERLEARNINGCURVEVO = AttributesEnum.SpOrderLearningCurveVO.index();
 
     /**

@@ -150,6 +150,32 @@ public class ManagedBean {
 
     public void updateOtherOrder(ActionEvent actionEvent) {
         // Add event code here...
+        ViewObject otherOrderVo = appM.getSpProjBookingOrderVO1();
+        Row otherOrderVoCurrentRow = otherOrderVo.getCurrentRow();
+        // System.out.println(projectionStyleVoCurrentRow.getAttribute("Style"));
+
+         
+        ViewObject orderSetupVo = appM.getSpOrderSetupVO1();
+        Row orderSetupVoRow ;
+        orderSetupVoRow = orderSetupVo.getCurrentRow();
+       
+       // orderSetupVoRow.setAttribute("PocId",otherOrderVoCurrentRow.getAttribute("PocId")); 
+      //  orderSetupVoRow.setAttribute("BpoId",otherOrderVoCurrentRow.getAttribute("BpoId")); 
+        orderSetupVoRow.setAttribute("BuyerId",otherOrderVoCurrentRow.getAttribute("BuyerId")); 
+        orderSetupVoRow.setAttribute("BuyerName",otherOrderVoCurrentRow.getAttribute("BuyerName"));
+        orderSetupVoRow.setAttribute("Season",otherOrderVoCurrentRow.getAttribute("Season"));
+        orderSetupVoRow.setAttribute("Style",otherOrderVoCurrentRow.getAttribute("Style"));
+        orderSetupVoRow.setAttribute("Color",otherOrderVoCurrentRow.getAttribute("Color"));
+        orderSetupVoRow.setAttribute("WashName",otherOrderVoCurrentRow.getAttribute("Wash"));
+        orderSetupVoRow.setAttribute("LcUnit",otherOrderVoCurrentRow.getAttribute("LcUnit"));
+        orderSetupVoRow.setAttribute("LcUnitName",otherOrderVoCurrentRow.getAttribute("LcUnitName"));
+        orderSetupVoRow.setAttribute("ProductionUnit",otherOrderVoCurrentRow.getAttribute("LcUnit"));
+        orderSetupVoRow.setAttribute("ProductionUnitName",otherOrderVoCurrentRow.getAttribute("LcUnitName"));
+        orderSetupVoRow.setAttribute("OrderQty",otherOrderVoCurrentRow.getAttribute("OrderQty"));  
+        orderSetupVoRow.setAttribute("OrderType",otherOrderVoCurrentRow.getAttribute("OrderType"));
+        orderSetupVoRow.setAttribute("Shipdate",otherOrderVoCurrentRow.getAttribute("Shipdate"));  
+        
+        
     }
 
     public void setOrderSetupTable(RichTable orderSetupTable) {

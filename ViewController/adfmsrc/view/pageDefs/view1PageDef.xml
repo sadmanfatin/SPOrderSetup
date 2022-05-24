@@ -44,6 +44,13 @@
           <Item Value="SewingEndDate"/>
           <Item Value="PbFlag"/>
           <Item Value="OrgId"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="Shipdate"/>
+          <Item Value="BuyerId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -56,6 +63,7 @@
           <Item Value="OrderSetupId"/>
           <Item Value="DayNo"/>
           <Item Value="LearningPercentage"/>
+    
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -115,5 +123,10 @@
     </button>
     <action IterBinding="SpProjBookingOrderVO1Iterator" id="CreateInsert2"
             RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SpProjBookingOrderVO1Iterator"
+            id="setCurrentRowWithKey" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

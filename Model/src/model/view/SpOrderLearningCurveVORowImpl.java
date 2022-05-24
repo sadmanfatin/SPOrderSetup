@@ -77,6 +77,7 @@ public class SpOrderLearningCurveVORowImpl extends ViewRowImpl {
                 obj.setLastUpdatedDate((Date)value);
             }
         }
+     
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -165,7 +166,8 @@ public class SpOrderLearningCurveVORowImpl extends ViewRowImpl {
      * @return the DAY_NO
      */
     public Number getDayNo() {
-        return (Number) getAttributeInternal(DAYNO);
+        
+       return (Number) getAttributeInternal(DAYNO);
     }
 
     /**
@@ -174,6 +176,7 @@ public class SpOrderLearningCurveVORowImpl extends ViewRowImpl {
      */
     public void setDayNo(Number value) {
         setAttributeInternal(DAYNO, value);
+    
     }
 
     /**
@@ -223,6 +226,8 @@ public class SpOrderLearningCurveVORowImpl extends ViewRowImpl {
     public void setLastUpdatedDate(Date value) {
         setAttributeInternal(LASTUPDATEDDATE, value);
     }
+
+
 
     /**
      * getAttrInvokeAccessor: generated method. Do not modify.

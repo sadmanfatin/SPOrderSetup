@@ -150,20 +150,41 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
     PrecisionRule="true"
     EntityAttrName="PocId"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="POC_ID"/>
+    AliasName="POC_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BpoId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="BpoId"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="BPO_ID"/>
+    AliasName="BPO_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BuyerId"
     PrecisionRule="true"
     EntityAttrName="BuyerId"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="BUYER_ID"/>
+    AliasName="BUYER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BuyerName"
     IsPersistent="false"
@@ -182,6 +203,8 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -190,7 +213,14 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
     PrecisionRule="true"
     EntityAttrName="Style"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="STYLE"/>
+    AliasName="STYLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Season"
     PrecisionRule="true"
@@ -202,6 +232,8 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -210,31 +242,66 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
     PrecisionRule="true"
     EntityAttrName="Color"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="COLOR"/>
+    AliasName="COLOR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Wash"
     PrecisionRule="true"
     EntityAttrName="Wash"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="WASH"/>
+    AliasName="WASH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OrgId"
     PrecisionRule="true"
     EntityAttrName="OrgId"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="ORG_ID"/>
+    AliasName="ORG_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OrderQty"
     PrecisionRule="true"
     EntityAttrName="OrderQty"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="ORDER_QTY"/>
+    AliasName="ORDER_QTY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LcUnit"
     PrecisionRule="true"
     EntityAttrName="LcUnit"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="LC_UNIT"/>
+    AliasName="LC_UNIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LcUnitName"
     IsPersistent="false"
@@ -253,6 +320,8 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -261,7 +330,14 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
     PrecisionRule="true"
     EntityAttrName="CreationDate"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="CREATION_DATE"/>
+    AliasName="CREATION_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     PrecisionRule="true"
@@ -285,7 +361,14 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
     PrecisionRule="true"
     EntityAttrName="Bpo"
     EntityUsage="SpProjBookingOrderEO"
-    AliasName="BPO"/>
+    AliasName="BPO">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Shipdate"
     PrecisionRule="true"
@@ -303,6 +386,8 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
