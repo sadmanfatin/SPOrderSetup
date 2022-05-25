@@ -51,6 +51,8 @@
           <Item Value="WashName"/>
           <Item Value="Shipdate"/>
           <Item Value="BuyerId"/>
+          <Item Value="Bpo"/>
+          <Item Value="ProductionUnitShortName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -125,8 +127,11 @@
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="SpProjBookingOrderVO1Iterator"
             id="setCurrentRowWithKey" RequiresUpdateModel="false"
-            Action="setCurrentRowWithKey">
-      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+            Action="setCurrentRowWithKeyValue"
+            InstanceName="AppModuleDataControl.SpProjBookingOrderVO1"
+            DataControl="AppModuleDataControl">
+      <NamedData NDName="rowKey" NDValue="#{row.bindings.BpoId.inputValue}"
+                 NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

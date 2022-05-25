@@ -17,6 +17,38 @@
     <Attr Name="_isCodegen" Value="true"/>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="OrgLOV1"
+    ViewObjectName="model.lov.OrgLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductionUnitLOV1"
+    ViewObjectName="model.lov.ProductionUnitLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProductionUnitShortName"
+    ListVOName="ProductionUnitLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductionUnitShortName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ProductionUnit"/>
+      <Item Value="ProductionUnitName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgShortName"/>
+      <Item Value="OrgId"/>
+      <Item Value="OrgName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT SpOrderSetupEO.ORDER_SETUP_ID, 
       ORDERS.LC_UNIT,  
@@ -25,7 +57,8 @@
        SpOrderSetupEO.ITEM_ID, 
        SpOrderSetupEO.ORDER_TYPE, 
        SpOrderSetupEO.PRODUCTION_UNIT, 
-         APPS.ORG_ID_TO_ORG_NAME(SpOrderSetupEO.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME,    
+       APPS.ORG_ID_TO_ORG_NAME(SpOrderSetupEO.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME, 
+       APPS.ORG_ID_TO_ORG_SHORT_NAME (SpOrderSetupEO.PRODUCTION_UNIT) PRODUCTION_UNIT_SHORT_NAME ,     
        SpOrderSetupEO.PRODUCTIVITY, 
        SpOrderSetupEO.SEWING_START_DATE, 
        SpOrderSetupEO.SEWING_END_DATE, 
@@ -37,7 +70,8 @@
        SpOrderSetupEO.LAST_UPDATED_BY,
        SpOrderSetupEO.ORDER_QTY,
        SpOrderSetupEO.SHIPDATE,
-       SpOrderSetupEO.BPO_ID, 
+       SpOrderSetupEO.BPO_ID,
+       ORDERS.BPO, 
        ORDERS.BUYER_ID, 
        APPS.XX_OM_BUYER_NAME_FOR_ID(ORDERS.BUYER_ID) BUYER_NAME ,
        ORDERS.SEASON, 
@@ -47,20 +81,7 @@
        ORDERS.SHIPDATE CURRENT_SHIPDATE, 
        ORDERS.ORDER_QTY CURRENT_ORDER_QTY             
    FROM SP_ORDER_SETUP SpOrderSetupEO,
-   (  SELECT 
-           SV.POC_ID,
-           SV.BPO_ID,
-           SV.LC_UNIT,
-           SV.BUYER_ID,
-           SV.SEASON,
-           SV.STYLE,
-           SV.COLOR,
-           SV.WASH_NAME,
-           SV.SHIPDATE,
-           SV.ORDER_QTY        
-      FROM APPS.SP_ORDERS_V SV
-                 
-     ) ORDERS 
+  APPS.SP_ORDERS_V ORDERS    
 where 1=1
 and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
   </SQLQuery>
@@ -140,6 +161,27 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
+    Name="ProductionUnitShortName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PRODUCTION_UNIT_SHORT_NAME"
+    Expression="PRODUCTION_UNIT_SHORT_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_ProductionUnitShortName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="Productivity"
     PrecisionRule="true"
     EntityAttrName="Productivity"
@@ -211,6 +253,20 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
     EntityAttrName="BpoId"
     EntityUsage="SpOrderSetupEO"
     AliasName="BPO_ID"/>
+  <ViewAttribute
+    Name="Bpo"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BPO"
+    Expression="BPO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="BuyerId"
     IsPersistent="false"

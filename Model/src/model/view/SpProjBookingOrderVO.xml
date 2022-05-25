@@ -120,6 +120,30 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_LcUnitShortName"
+    ListVOName="ProductionUnitLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LcUnitShortName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="LcUnit"/>
+      <Item Value="LcUnitName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgShortName"/>
+      <Item Value="OrgId"/>
+      <Item Value="OrgName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT SpProjBookingOrderEO.POC_ID, 
        SpProjBookingOrderEO.BPO_ID, 
@@ -133,13 +157,15 @@
        SpProjBookingOrderEO.ORDER_QTY, 
        SpProjBookingOrderEO.LC_UNIT, 
        ORG_ID_TO_ORG_NAME(SpProjBookingOrderEO.LC_UNIT) LC_UNIT_NAME,
+        APPS.ORG_ID_TO_ORG_SHORT_NAME (SpProjBookingOrderEO.LC_UNIT)  LC_UNIT_SHORT_NAME,
        SpProjBookingOrderEO.CREATION_DATE, 
        SpProjBookingOrderEO.CREATED_BY, 
        SpProjBookingOrderEO.LAST_UPDATED_DATE, 
        SpProjBookingOrderEO.LAST_UPDATED_BY, 
        SpProjBookingOrderEO.BPO, 
        SpProjBookingOrderEO.SHIPDATE, 
-       SpProjBookingOrderEO.ORDER_TYPE
+       SpProjBookingOrderEO.ORDER_TYPE,
+        SpProjBookingOrderEO.PRODUCTIVITY
 FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
   </SQLQuery>
   <EntityUsage
@@ -326,6 +352,27 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
+    Name="LcUnitShortName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LC_UNIT_SHORT_NAME"
+    Expression="LC_UNIT_SHORT_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_LcUnitShortName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
     EntityAttrName="CreationDate"
@@ -391,6 +438,12 @@ FROM SP_PROJ_BOOKING_ORDER SpProjBookingOrderEO]]>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Productivity"
+    PrecisionRule="true"
+    EntityAttrName="Productivity"
+    EntityUsage="SpProjBookingOrderEO"
+    AliasName="PRODUCTIVITY"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

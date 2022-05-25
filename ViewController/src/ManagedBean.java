@@ -79,7 +79,8 @@ public class ManagedBean {
                 //   spOrderSetupRow.setOrgName(pocOrdersRow.getOrgName());
                 //  spOrderSetupRow.setSystemId(pocOrdersRow.getSystemId());   
           
-                    spOrderSetupRow.setBpoId(pocOrdersRow.getBpoId().toString());      
+                    spOrderSetupRow.setBpoId(pocOrdersRow.getBpoId().toString());   
+                    spOrderSetupRow.setBpo(pocOrdersRow.getBpo().toString()); 
                     spOrderSetupRow.setPocId(pocOrdersRow.getPocId());  
                     spOrderSetupRow.setBuyerName(pocOrdersRow.getBuyerName());
                     spOrderSetupRow.setSeason(pocOrdersRow.getSeason());
@@ -93,7 +94,7 @@ public class ManagedBean {
                     spOrderSetupRow.setOrderQty(pocOrdersRow.getOrderQty());
                     spOrderSetupRow.setShipdate(pocOrdersRow.getShipdate()); 
                     spOrderSetupRow.setOrderType("Confirmed");
-                 //   spOrderSetupRow.setProductivity();
+                    spOrderSetupRow.setProductivity(new Number(100));
                     
                     
                     spOrderSetupVo.insertRow(spOrderSetupRow);
@@ -130,6 +131,7 @@ public class ManagedBean {
         orderSetupVoRow = orderSetupVo.createRow();
         orderSetupVoRow.setAttribute("PocId",otherOrderVoCurrentRow.getAttribute("PocId")); 
         orderSetupVoRow.setAttribute("BpoId",otherOrderVoCurrentRow.getAttribute("BpoId")); 
+        orderSetupVoRow.setAttribute("Bpo",otherOrderVoCurrentRow.getAttribute("Bpo")); 
         orderSetupVoRow.setAttribute("BuyerId",otherOrderVoCurrentRow.getAttribute("BuyerId")); 
         orderSetupVoRow.setAttribute("BuyerName",otherOrderVoCurrentRow.getAttribute("BuyerName"));
         orderSetupVoRow.setAttribute("Season",otherOrderVoCurrentRow.getAttribute("Season"));
@@ -162,6 +164,7 @@ public class ManagedBean {
        // orderSetupVoRow.setAttribute("PocId",otherOrderVoCurrentRow.getAttribute("PocId")); 
       //  orderSetupVoRow.setAttribute("BpoId",otherOrderVoCurrentRow.getAttribute("BpoId")); 
         orderSetupVoRow.setAttribute("BuyerId",otherOrderVoCurrentRow.getAttribute("BuyerId")); 
+        orderSetupVoRow.setAttribute("Bpo",otherOrderVoCurrentRow.getAttribute("Bpo")); 
         orderSetupVoRow.setAttribute("BuyerName",otherOrderVoCurrentRow.getAttribute("BuyerName"));
         orderSetupVoRow.setAttribute("Season",otherOrderVoCurrentRow.getAttribute("Season"));
         orderSetupVoRow.setAttribute("Style",otherOrderVoCurrentRow.getAttribute("Style"));
@@ -171,8 +174,10 @@ public class ManagedBean {
         orderSetupVoRow.setAttribute("LcUnitName",otherOrderVoCurrentRow.getAttribute("LcUnitName"));
         orderSetupVoRow.setAttribute("ProductionUnit",otherOrderVoCurrentRow.getAttribute("LcUnit"));
         orderSetupVoRow.setAttribute("ProductionUnitName",otherOrderVoCurrentRow.getAttribute("LcUnitName"));
+        orderSetupVoRow.setAttribute("ProductionUnitShortName",otherOrderVoCurrentRow.getAttribute("LcUnitShortName"));
         orderSetupVoRow.setAttribute("OrderQty",otherOrderVoCurrentRow.getAttribute("OrderQty"));  
         orderSetupVoRow.setAttribute("OrderType",otherOrderVoCurrentRow.getAttribute("OrderType"));
+        orderSetupVoRow.setAttribute("Productivity",otherOrderVoCurrentRow.getAttribute("Productivity")); 
         orderSetupVoRow.setAttribute("Shipdate",otherOrderVoCurrentRow.getAttribute("Shipdate"));  
         
         

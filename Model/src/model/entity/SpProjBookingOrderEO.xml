@@ -213,6 +213,17 @@
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Productivity"
+    ColumnName="PRODUCTIVITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SP_PROJ_BOOKING_ORDER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="SpProjBookingOrderPk"
     PrimaryKey="true">

@@ -51,8 +51,6 @@
         <Item Value="LcUnit"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="SpProjBookingOrderVO1Iterator" StaticList="false"
-          Uses="LOV_LcUnitName" id="LcUnitName" DTSupportsMRU="false"/>
     <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="Bpo">
       <AttrNames>
         <Item Value="Bpo"/>
@@ -65,5 +63,13 @@
     </attributeValues>
     <action IterBinding="SpProjBookingOrderVO1Iterator" id="Delete"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="SpProjBookingOrderVO1Iterator" StaticList="false"
+          Uses="LOV_LcUnitShortName" id="LcUnitShortName" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="SpProjBookingOrderVO1Iterator"
+                     id="Productivity">
+      <AttrNames>
+        <Item Value="Productivity"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

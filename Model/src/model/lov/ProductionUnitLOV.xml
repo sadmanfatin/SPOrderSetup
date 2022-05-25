@@ -20,7 +20,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT  ORGANIZATION_ID org_id ,  INTERNAL_ADDRESS_LINE ORG_NAME
+    <![CDATA[SELECT  ORGANIZATION_ID org_id ,  INTERNAL_ADDRESS_LINE ORG_NAME, ORG_ID_TO_ORG_SHORT_NAME (ORGANIZATION_ID) ORG_SHORT_NAME
 FROM HR_ORGANIZATION_UNITS 
 WHERE ORGANIZATION_ID IN (340,341,342,443)]]>
   </SQLQuery>
@@ -54,6 +54,21 @@ WHERE ORGANIZATION_ID IN (340,341,342,443)]]>
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgShortName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ORG_SHORT_NAME"
+    Expression="ORG_SHORT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
   </ViewAttribute>
   <ResourceBundle>

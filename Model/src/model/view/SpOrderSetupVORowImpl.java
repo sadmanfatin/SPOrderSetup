@@ -3,6 +3,7 @@ package model.view;
 import model.entity.SpOrderSetupEOImpl;
 
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
 import oracle.jbo.server.AttributeDefImpl;
@@ -96,6 +97,16 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
 
             public void put(SpOrderSetupVORowImpl obj, Object value) {
                 obj.setProductionUnitName((String)value);
+            }
+        }
+        ,
+        ProductionUnitShortName {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getProductionUnitShortName();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setProductionUnitShortName((String)value);
             }
         }
         ,
@@ -219,6 +230,16 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        Bpo {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getBpo();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setBpo((String)value);
+            }
+        }
+        ,
         BuyerId {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getBuyerId();
@@ -308,6 +329,26 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        OrgLOV1 {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getOrgLOV1();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        ProductionUnitLOV1 {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getProductionUnitLOV1();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -345,6 +386,7 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int ORDERTYPE = AttributesEnum.OrderType.index();
     public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
     public static final int PRODUCTIONUNITNAME = AttributesEnum.ProductionUnitName.index();
+    public static final int PRODUCTIONUNITSHORTNAME = AttributesEnum.ProductionUnitShortName.index();
     public static final int PRODUCTIVITY = AttributesEnum.Productivity.index();
     public static final int SEWINGSTARTDATE = AttributesEnum.SewingStartDate.index();
     public static final int SEWINGENDDATE = AttributesEnum.SewingEndDate.index();
@@ -357,6 +399,7 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int SHIPDATE = AttributesEnum.Shipdate.index();
     public static final int BPOID = AttributesEnum.BpoId.index();
+    public static final int BPO = AttributesEnum.Bpo.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int BUYERNAME = AttributesEnum.BuyerName.index();
     public static final int SEASON = AttributesEnum.Season.index();
@@ -366,6 +409,8 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int CURRENTSHIPDATE = AttributesEnum.CurrentShipdate.index();
     public static final int CURRENTORDERQTY = AttributesEnum.CurrentOrderQty.index();
     public static final int SPORDERLEARNINGCURVEVO = AttributesEnum.SpOrderLearningCurveVO.index();
+    public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
+    public static final int PRODUCTIONUNITLOV1 = AttributesEnum.ProductionUnitLOV1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -446,6 +491,22 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute Bpo.
+     * @return the Bpo
+     */
+    public String getBpo() {
+        return (String) getAttributeInternal(BPO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute Bpo.
+     * @param value value to set the  Bpo
+     */
+    public void setBpo(String value) {
+        setAttributeInternal(BPO, value);
+    }
+
+    /**
      * Gets the attribute value for POC_ID using the alias name PocId.
      * @return the POC_ID
      */
@@ -523,6 +584,22 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
      */
     public void setProductionUnitName(String value) {
         setAttributeInternal(PRODUCTIONUNITNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ProductionUnitShortName.
+     * @return the ProductionUnitShortName
+     */
+    public String getProductionUnitShortName() {
+        return (String) getAttributeInternal(PRODUCTIONUNITSHORTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute ProductionUnitShortName.
+     * @param value value to set the  ProductionUnitShortName
+     */
+    public void setProductionUnitShortName(String value) {
+        setAttributeInternal(PRODUCTIONUNITSHORTNAME, value);
     }
 
     /**
@@ -835,6 +912,20 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
      */
     public RowIterator getSpOrderLearningCurveVO() {
         return (RowIterator)getAttributeInternal(SPORDERLEARNINGCURVEVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> OrgLOV1.
+     */
+    public RowSet getOrgLOV1() {
+        return (RowSet)getAttributeInternal(ORGLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> ProductionUnitLOV1.
+     */
+    public RowSet getProductionUnitLOV1() {
+        return (RowSet)getAttributeInternal(PRODUCTIONUNITLOV1);
     }
 
     /**

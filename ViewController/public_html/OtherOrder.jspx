@@ -23,7 +23,7 @@
                               columns="#{bindings.BpoId.hints.displayWidth}"
                               maximumLength="#{bindings.BpoId.hints.precision}"
                               shortDesc="#{bindings.BpoId.hints.tooltip}"
-                              id="it5">
+                              id="it5" readOnly="true">
                   <f:validator binding="#{bindings.BpoId.validator}"/>
                 </af:inputText>
                 <af:selectOneChoice value="#{bindings.OrderType.inputValue}"
@@ -39,7 +39,7 @@
                               columns="#{bindings.BuyerId.hints.displayWidth}"
                               maximumLength="#{bindings.BuyerId.hints.precision}"
                               shortDesc="#{bindings.BuyerId.hints.tooltip}"
-                              id="it3" partialTriggers="soc4">
+                              id="it3" partialTriggers="soc4" readOnly="true">
                   <f:validator binding="#{bindings.BuyerId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.BuyerId.format}"/>
@@ -103,17 +103,18 @@
                               columns="#{bindings.LcUnit.hints.displayWidth}"
                               maximumLength="#{bindings.LcUnit.hints.precision}"
                               shortDesc="#{bindings.LcUnit.hints.tooltip}"
-                              id="it7" partialTriggers="soc3">
+                              id="it7" partialTriggers="soc3" readOnly="true">
                   <f:validator binding="#{bindings.LcUnit.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.LcUnit.format}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.LcUnitName.inputValue}"
-                                    label="#{bindings.LcUnitName.label}"
-                                    required="#{bindings.LcUnitName.hints.mandatory}"
-                                    shortDesc="#{bindings.LcUnitName.hints.tooltip}"
+                <af:selectOneChoice value="#{bindings.LcUnitShortName.inputValue}"
+                                    label="#{bindings.LcUnitShortName.label}"
+                                    required="#{bindings.LcUnitShortName.hints.mandatory}"
+                                    shortDesc="#{bindings.LcUnitShortName.hints.tooltip}"
                                     id="soc3" autoSubmit="true">
-                  <f:selectItems value="#{bindings.LcUnitName.items}" id="si2"/>
+                  <f:selectItems value="#{bindings.LcUnitShortName.items}"
+                                 id="si2"/>
                 </af:selectOneChoice>
                 <af:inputText value="#{bindings.Bpo.inputValue}"
                               label="#{bindings.Bpo.hints.label}"
@@ -123,6 +124,17 @@
                               shortDesc="#{bindings.Bpo.hints.tooltip}"
                               id="it6">
                   <f:validator binding="#{bindings.Bpo.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Productivity.inputValue}"
+                              label="#{bindings.Productivity.hints.label}"
+                              required="#{bindings.Productivity.hints.mandatory}"
+                              columns="#{bindings.Productivity.hints.displayWidth}"
+                              maximumLength="#{bindings.Productivity.hints.precision}"
+                              shortDesc="#{bindings.Productivity.hints.tooltip}"
+                              id="it9">
+                  <f:validator binding="#{bindings.Productivity.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Productivity.format}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.Shipdate.inputValue}"
                               label="#{bindings.Shipdate.hints.label}"

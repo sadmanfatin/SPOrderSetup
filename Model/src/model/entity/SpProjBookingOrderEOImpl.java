@@ -196,6 +196,16 @@ public class SpProjBookingOrderEOImpl extends EntityImpl {
                 obj.setOrderType((String)value);
             }
         }
+        ,
+        Productivity {
+            public Object get(SpProjBookingOrderEOImpl obj) {
+                return obj.getProductivity();
+            }
+
+            public void put(SpProjBookingOrderEOImpl obj, Object value) {
+                obj.setProductivity((Number)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -243,6 +253,7 @@ public class SpProjBookingOrderEOImpl extends EntityImpl {
     public static final int BPO = AttributesEnum.Bpo.index();
     public static final int SHIPDATE = AttributesEnum.Shipdate.index();
     public static final int ORDERTYPE = AttributesEnum.OrderType.index();
+    public static final int PRODUCTIVITY = AttributesEnum.Productivity.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -531,6 +542,22 @@ public class SpProjBookingOrderEOImpl extends EntityImpl {
      */
     public void setOrderType(String value) {
         setAttributeInternal(ORDERTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for Productivity, using the alias name Productivity.
+     * @return the Productivity
+     */
+    public Number getProductivity() {
+        return (Number)getAttributeInternal(PRODUCTIVITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Productivity.
+     * @param value value to set the Productivity
+     */
+    public void setProductivity(Number value) {
+        setAttributeInternal(PRODUCTIVITY, value);
     }
 
     /**
