@@ -5,10 +5,14 @@
   <pageMap>
     <page path="/view1.jspx" usageId="view_view1PageDef"/>
     <page path="/OtherOrder.jspx" usageId="view_OtherOrderPageDef"/>
+    <page path="/DefaultLearningCurve.jspx"
+          usageId="view_DefaultLearningCurvePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_view1PageDef" path="view.pageDefs.view1PageDef"/>
     <page id="view_OtherOrderPageDef" path="view.pageDefs.OtherOrderPageDef"/>
+    <page id="view_DefaultLearningCurvePageDef"
+          path="view.pageDefs.DefaultLearningCurvePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model.service"

@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl1">
+              <af:panelHeader text="Default Learning Curve" id="ph1"
+                              inlineStyle="padding-left:20px;">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:spacer width="20" height="10" id="s1"/>
+                <af:selectOneChoice value="#{bindings.ItemDescriptionVO1.inputValue}"
+                                    required="#{bindings.ItemDescriptionVO1.hints.mandatory}"
+                                    shortDesc="#{bindings.ItemDescriptionVO1.hints.tooltip}"
+                                    id="soc1" autoSubmit="true"
+                                    inlineStyle="margin-bottom:20.0px;"
+                                    label="Item Description">
+                  <f:selectItems value="#{bindings.ItemDescriptionVO1.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="pgl2">
+                  <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                    text="Add"
+                                    disabled="#{!bindings.CreateInsert.enabled}"
+                                    id="cb1"/>
+                  <af:spacer width="20" height="10" id="s2"/>
+                  <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                    text="Delete"
+                                    disabled="#{!bindings.Delete.enabled}"
+                                    id="cb2"/>
+                  <af:spacer width="20" height="10" id="s3"/>
+                  <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                    text="Save"
+                                    disabled="#{!bindings.Commit.enabled}"
+                                    id="cb3"/>
+                  <af:spacer width="20" height="10" id="spacer1"/>
+                  <af:commandButton text="Back" id="cb4"
+                                    action="return to view1"/>
+                </af:panelGroupLayout>
+                <af:table value="#{bindings.SpDefaultLearningCurveVO1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.SpDefaultLearningCurveVO1.rangeSize}"
+                          emptyText="#{bindings.SpDefaultLearningCurveVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.SpDefaultLearningCurveVO1.rangeSize}"
+                          rowBandingInterval="0" id="t1"
+                          partialTriggers="::cb1 ::cb2 ::soc1"
+                          inlineStyle="margin-top:10.0px;" width="288">
+                  <af:column sortProperty="DlcId" sortable="false"
+                             headerText="#{bindings.SpDefaultLearningCurveVO1.hints.DlcId.label}"
+                             id="c4" visible="false">
+                    <af:inputText value="#{row.bindings.DlcId.inputValue}"
+                                  label="#{bindings.SpDefaultLearningCurveVO1.hints.DlcId.label}"
+                                  required="#{bindings.SpDefaultLearningCurveVO1.hints.DlcId.mandatory}"
+                                  columns="#{bindings.SpDefaultLearningCurveVO1.hints.DlcId.displayWidth}"
+                                  maximumLength="#{bindings.SpDefaultLearningCurveVO1.hints.DlcId.precision}"
+                                  shortDesc="#{bindings.SpDefaultLearningCurveVO1.hints.DlcId.tooltip}"
+                                  id="it4">
+                      <f:validator binding="#{row.bindings.DlcId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.SpDefaultLearningCurveVO1.hints.DlcId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="DayNo" sortable="false"
+                             headerText="Day No"
+                             id="c2" align="center">
+                    <af:inputText value="#{row.bindings.DayNo.inputValue}"
+                                  label="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.label}"
+                                  required="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.mandatory}"
+                                  columns="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.displayWidth}"
+                                  maximumLength="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.precision}"
+                                  shortDesc="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.tooltip}"
+                                  id="it5">
+                      <f:validator binding="#{row.bindings.DayNo.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="LearningPercentage" sortable="false"
+                             headerText="Learning Percentage"
+                             id="c1" align="center">
+                    <af:inputText value="#{row.bindings.LearningPercentage.inputValue}"
+                                  label="#{bindings.SpDefaultLearningCurveVO1.hints.LearningPercentage.label}"
+                                  required="#{bindings.SpDefaultLearningCurveVO1.hints.LearningPercentage.mandatory}"
+                                  columns="#{bindings.SpDefaultLearningCurveVO1.hints.LearningPercentage.displayWidth}"
+                                  maximumLength="#{bindings.SpDefaultLearningCurveVO1.hints.LearningPercentage.precision}"
+                                  shortDesc="#{bindings.SpDefaultLearningCurveVO1.hints.LearningPercentage.tooltip}"
+                                  id="it7">
+                      <f:validator binding="#{row.bindings.LearningPercentage.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.SpDefaultLearningCurveVO1.hints.LearningPercentage.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="OrgId" sortable="false"
+                             headerText="#{bindings.SpDefaultLearningCurveVO1.hints.OrgId.label}"
+                             id="c3" visible="false">
+                    <af:inputText value="#{row.bindings.OrgId.inputValue}"
+                                  label="#{bindings.SpDefaultLearningCurveVO1.hints.OrgId.label}"
+                                  required="#{bindings.SpDefaultLearningCurveVO1.hints.OrgId.mandatory}"
+                                  columns="#{bindings.SpDefaultLearningCurveVO1.hints.OrgId.displayWidth}"
+                                  maximumLength="#{bindings.SpDefaultLearningCurveVO1.hints.OrgId.precision}"
+                                  shortDesc="#{bindings.SpDefaultLearningCurveVO1.hints.OrgId.tooltip}"
+                                  id="it6">
+                      <f:validator binding="#{row.bindings.OrgId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.SpDefaultLearningCurveVO1.hints.OrgId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpDefaultLearningCurveVO1.hints.ItemId.label}"
+                             id="c5" visible="false">
+                    <af:inputText value="#{row.bindings.ItemId.inputValue}"
+                                  label="#{bindings.SpDefaultLearningCurveVO1.hints.ItemId.label}"
+                                  required="#{bindings.SpDefaultLearningCurveVO1.hints.ItemId.mandatory}"
+                                  columns="#{bindings.SpDefaultLearningCurveVO1.hints.ItemId.displayWidth}"
+                                  maximumLength="#{bindings.SpDefaultLearningCurveVO1.hints.ItemId.precision}"
+                                  shortDesc="#{bindings.SpDefaultLearningCurveVO1.hints.ItemId.tooltip}"
+                                  id="it1">
+                      <f:validator binding="#{row.bindings.ItemId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.SpDefaultLearningCurveVO1.hints.ItemId.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.SpDefaultLearningCurveVO1.hints.ItemDescription.label}"
+                             id="c6" visible="false">
+                    <af:inputText value="#{row.bindings.ItemDescription.inputValue}"
+                                  label="#{bindings.SpDefaultLearningCurveVO1.hints.ItemDescription.label}"
+                                  required="#{bindings.SpDefaultLearningCurveVO1.hints.ItemDescription.mandatory}"
+                                  columns="#{bindings.SpDefaultLearningCurveVO1.hints.ItemDescription.displayWidth}"
+                                  maximumLength="#{bindings.SpDefaultLearningCurveVO1.hints.ItemDescription.precision}"
+                                  shortDesc="#{bindings.SpDefaultLearningCurveVO1.hints.ItemDescription.tooltip}"
+                                  id="it2">
+                      <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+              </af:panelHeader>
+            </af:panelGroupLayout>
+            <!-- id="af_one_column_stretched"   -->
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

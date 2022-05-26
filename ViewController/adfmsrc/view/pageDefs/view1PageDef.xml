@@ -27,6 +27,8 @@
     <iterator Binds="SpProjBookingOrderVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="SpProjBookingOrderVO1Iterator"/>
+    <iterator Binds="OrgVO1" RangeSize="10" DataControl="AppModuleDataControl"
+              id="OrgVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SpOrderSetupVO1Iterator" id="SpOrderSetupVO1">
@@ -133,5 +135,15 @@
       <NamedData NDName="rowKey" NDValue="#{row.bindings.BpoId.inputValue}"
                  NDType="java.lang.String"/>
     </action>
+    <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
+      <AttrNames>
+        <Item Value="OrgName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OrgVO1Iterator" id="OrgId">
+      <AttrNames>
+        <Item Value="OrgId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

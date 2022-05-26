@@ -10,7 +10,8 @@
       <af:form id="f1">
         <af:panelStretchLayout id="psl1">
           <f:facet name="center">
-            <af:panelHeader text="Add / Edit  Order" id="ph1">
+            <af:panelHeader text="Add / Edit  Order" id="ph1"
+                            inlineStyle="padding-left:20.0px;">
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>
@@ -39,7 +40,8 @@
                               columns="#{bindings.BuyerId.hints.displayWidth}"
                               maximumLength="#{bindings.BuyerId.hints.precision}"
                               shortDesc="#{bindings.BuyerId.hints.tooltip}"
-                              id="it3" partialTriggers="soc4" readOnly="true">
+                              id="it3" partialTriggers="soc4" readOnly="true"
+                              visible="false">
                   <f:validator binding="#{bindings.BuyerId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.BuyerId.format}"/>
@@ -103,7 +105,8 @@
                               columns="#{bindings.LcUnit.hints.displayWidth}"
                               maximumLength="#{bindings.LcUnit.hints.precision}"
                               shortDesc="#{bindings.LcUnit.hints.tooltip}"
-                              id="it7" partialTriggers="soc3" readOnly="true">
+                              id="it7" partialTriggers="soc3" readOnly="true"
+                              visible="false">
                   <f:validator binding="#{bindings.LcUnit.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.LcUnit.format}"/>

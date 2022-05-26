@@ -33,6 +33,9 @@
       <to-value>#{viewScope.activityType}</to-value>
     </input-page-parameter>
   </view>
+  <view id="DefaultLearningCurve">
+    <page>/DefaultLearningCurve.jspx</page>
+  </view>
   <control-flow-rule id="__5">
     <from-activity-id id="__6">view1</from-activity-id>
     <control-flow-case id="__7">
@@ -42,6 +45,10 @@
     <control-flow-case id="__15">
       <from-outcome id="__21">edit other order</from-outcome>
       <to-activity-id id="__16">EditOtherOrder</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__24">
+      <from-outcome id="__25">goto DefaultLearningCurve</from-outcome>
+      <to-activity-id id="__23">DefaultLearningCurve</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__10">
@@ -56,6 +63,13 @@
     <control-flow-case id="__20">
       <from-outcome id="__22">return to view1</from-outcome>
       <to-activity-id id="__19">view1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__26">
+    <from-activity-id id="__27">DefaultLearningCurve</from-activity-id>
+    <control-flow-case id="__29">
+      <from-outcome id="__30">return to view1</from-outcome>
+      <to-activity-id id="__28">view1</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__2">

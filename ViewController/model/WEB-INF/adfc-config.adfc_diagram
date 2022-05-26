@@ -13,9 +13,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">231.14355</property>
+         name="y">78.28711</property>
       <property
-         name="x">536.0</property>
+         name="x">555.0</property>
    </View>
    <View
       id="View3">
@@ -28,9 +28,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">129.53418</property>
+         name="y">27.131836</property>
       <property
-         name="x">885.0</property>
+         name="x">881.0</property>
    </View>
    <View
       id="View4">
@@ -43,9 +43,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">380.7412</property>
+         name="y">180.33887</property>
       <property
-         name="x">879.0</property>
+         name="x">883.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -55,7 +55,7 @@
       <property
          name="fromOutcome">add other order</property>
       <property
-         name="sdm:polyPoints">R38,577.0,220.29297,842.7939,125.68359,L46</property>
+         name="sdm:polyPoints">R38,596.0,67.43652,839.3709,23.28125,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -65,7 +65,7 @@
       <property
          name="fromOutcome">return to view1</property>
       <property
-         name="sdm:polyPoints">L54,844.0,132.6836,578.20355,227.29297,R46</property>
+         name="sdm:polyPoints">L54,840.0,30.28125,596.6283,74.43652,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -75,7 +75,7 @@
       <property
          name="fromOutcome">edit other order</property>
       <property
-         name="sdm:polyPoints">R54,578.78754,234.29297,838.0,376.89062,L46</property>
+         name="sdm:polyPoints">R54,597.30536,81.43652,842.0,176.48828,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -85,6 +85,41 @@
       <property
          name="fromOutcome">return to view1</property>
       <property
-         name="sdm:polyPoints">L54,836.2071,383.89062,577.0,241.29297,R62</property>
+         name="sdm:polyPoints">L54,840.6914,183.48828,596.0,88.43652,R62</property>
+   </ControlFlowCase>
+   <View
+      id="View9">
+      <property
+         name="activityId">DefaultLearningCurve</property>
+      <property
+         name="page">/DefaultLearningCurve.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>DefaultLearningCurve&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">359.89648</property>
+      <property
+         name="x">565.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="View9">
+      <property
+         name="fromOutcome">goto DefaultLearningCurve</property>
+      <property
+         name="sdm:polyPoints">B44,551.5,132.13795,561.5,305.5459,T44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View9"
+      to="View2">
+      <property
+         name="fromOutcome">return to view1</property>
+      <property
+         name="sdm:polyPoints">T56,568.5,305.34436,558.5,131.93652,B56</property>
    </ControlFlowCase>
 </SDM>

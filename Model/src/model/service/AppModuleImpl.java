@@ -101,4 +101,36 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewObjectImpl getSpProjBookingOrderVO1() {
         return (ViewObjectImpl)findViewObject("SpProjBookingOrderVO1");
     }
+
+    /**
+     * Container's getter for OrgVO1.
+     * @return OrgVO1
+     */
+    public ViewObjectImpl getOrgVO1() {
+        return (ViewObjectImpl)findViewObject("OrgVO1");
+    }
+
+    /**
+     * Container's getter for ItemDescriptionVO1.
+     * @return ItemDescriptionVO1
+     */
+    public ViewObjectImpl getItemDescriptionVO1() {
+        return (ViewObjectImpl)findViewObject("ItemDescriptionVO1");
+    }
+
+    /**
+     * Container's getter for SpDefaultLearningCurveVO1.
+     * @return SpDefaultLearningCurveVO1
+     */
+    public ViewObjectImpl getSpDefaultLearningCurveVO1() {
+        return (ViewObjectImpl)findViewObject("SpDefaultLearningCurveVO1");
+    }
+
+    /**
+     * Container's getter for ItemDescriptionVO_vs_DefaultLearningCurve_VL1.
+     * @return ItemDescriptionVO_vs_DefaultLearningCurve_VL1
+     */
+    public ViewLinkImpl getItemDescriptionVO_vs_DefaultLearningCurve_VL1() {
+        return (ViewLinkImpl)findViewLink("ItemDescriptionVO_vs_DefaultLearningCurve_VL1");
+    }
 }

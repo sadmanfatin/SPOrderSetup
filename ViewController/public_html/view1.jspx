@@ -441,11 +441,35 @@
               </af:panelCollection>
             </af:panelGroupLayout>
           </f:facet>
+          <f:facet name="top">
+          <af:panelGroupLayout layout="vertical"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl2">
+              <af:panelHeader text="Stitching Planning -  Order Setup - #{bindings.OrgName.inputValue}"
+                              id="ph1" styleClass="customLayoutStyle">
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                  <af:commandButton text="Default Learning Curve" id="cb9"
+                                    action="goto DefaultLearningCurve"/>
+                </f:facet>
+                <af:inputText value="#{bindings.OrgId.inputValue}"
+                              required="#{bindings.OrgId.hints.mandatory}"
+                              columns="#{bindings.OrgId.hints.displayWidth}"
+                              maximumLength="#{bindings.OrgId.hints.precision}"
+                              shortDesc="#{bindings.OrgId.hints.tooltip}"
+                              id="it51" visible="false">
+                  <f:validator binding="#{bindings.OrgId1.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.OrgId1.format}"/>
+                </af:inputText>
+              </af:panelHeader>
+            </af:panelGroupLayout>
+          </f:facet>
         </af:panelStretchLayout>
         <af:popup id="p1">
           <af:dialog id="d2"
                      dialogListener="#{ManagedBean.populateOrdersDialogueListener}">
-            <af:panelHeader text="Popuate Orders" id="ph1">
+            <af:panelHeader text="Popuate Orders" id="ph2">
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>

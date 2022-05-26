@@ -28,11 +28,26 @@
   <ViewUsage
     Name="SpProjBookingOrderVO1"
     ViewObjectName="model.view.SpProjBookingOrderVO"/>
+  <ViewUsage
+    Name="OrgVO1"
+    ViewObjectName="model.view.OrgVO"/>
+  <ViewUsage
+    Name="ItemDescriptionVO1"
+    ViewObjectName="model.view.ItemDescriptionVO"/>
+  <ViewUsage
+    Name="SpDefaultLearningCurveVO1"
+    ViewObjectName="model.view.SpDefaultLearningCurveVO"/>
   <ViewLinkUsage
     Name="SpOrderLearningCurveR01Link1"
     ViewLinkObjectName="model.view.SpOrderLearningCurveR01Link"
     SrcViewUsageName="model.service.AppModule.SpOrderSetupVO1"
     DstViewUsageName="model.service.AppModule.SpOrderLearningCurveVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ItemDescriptionVO_vs_DefaultLearningCurve_VL1"
+    ViewLinkObjectName="model.view.ItemDescriptionVO_vs_DefaultLearningCurve_VL"
+    SrcViewUsageName="model.service.AppModule.ItemDescriptionVO1"
+    DstViewUsageName="model.service.AppModule.SpDefaultLearningCurveVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method
