@@ -38,6 +38,7 @@
              SV.shipDate,
             SV.COLOR,
             SV.WASH_NAME,
+            SV.ITEM_DESCRIPTION,
             SV.VERSION_DATE ,
              SV.LC_UNIT PRODUCTION_UNIT,
               APPS.ORG_ID_TO_ORG_NAME(SV.LC_UNIT) PRODUCTION_UNIT_NAME               
@@ -239,6 +240,21 @@
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
+    Name="ItemDescription"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_DESCRIPTION"
+    Expression="ITEM_DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
     Name="VersionDate"
     IsUpdateable="false"
     IsPersistent="false"
@@ -252,15 +268,6 @@
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewAttribute
-    Name="SelectOrder"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
   <ViewAttribute
     Name="ProductionUnit"
     IsUpdateable="false"
@@ -280,6 +287,15 @@
     ColumnType="VARCHAR2"
     AliasName="PRODUCTION_UNIT_NAME"
     Expression="PRODUCTION_UNIT_NAME"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="SelectOrder"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
   <ResourceBundle>
     <PropertiesBundle

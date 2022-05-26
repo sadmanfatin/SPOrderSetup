@@ -145,6 +145,16 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ItemDescription {
+            public Object get(PopulateOrdersVORowImpl obj) {
+                return obj.getItemDescription();
+            }
+
+            public void put(PopulateOrdersVORowImpl obj, Object value) {
+                obj.setItemDescription((String)value);
+            }
+        }
+        ,
         VersionDate {
             public Object get(PopulateOrdersVORowImpl obj) {
                 return obj.getVersionDate();
@@ -152,16 +162,6 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
 
             public void put(PopulateOrdersVORowImpl obj, Object value) {
                 obj.setVersionDate((Date)value);
-            }
-        }
-        ,
-        SelectOrder {
-            public Object get(PopulateOrdersVORowImpl obj) {
-                return obj.getSelectOrder();
-            }
-
-            public void put(PopulateOrdersVORowImpl obj, Object value) {
-                obj.setSelectOrder((String)value);
             }
         }
         ,
@@ -182,6 +182,16 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
 
             public void put(PopulateOrdersVORowImpl obj, Object value) {
                 obj.setProductionUnitName((String)value);
+            }
+        }
+        ,
+        SelectOrder {
+            public Object get(PopulateOrdersVORowImpl obj) {
+                return obj.getSelectOrder();
+            }
+
+            public void put(PopulateOrdersVORowImpl obj, Object value) {
+                obj.setSelectOrder((String)value);
             }
         }
         ;
@@ -226,10 +236,11 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
     public static final int SHIPDATE = AttributesEnum.Shipdate.index();
     public static final int COLOR = AttributesEnum.Color.index();
     public static final int WASHNAME = AttributesEnum.WashName.index();
+    public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
     public static final int VERSIONDATE = AttributesEnum.VersionDate.index();
-    public static final int SELECTORDER = AttributesEnum.SelectOrder.index();
     public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
     public static final int PRODUCTIONUNITNAME = AttributesEnum.ProductionUnitName.index();
+    public static final int SELECTORDER = AttributesEnum.SelectOrder.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -443,6 +454,22 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
      */
     public void setWashName(String value) {
         setAttributeInternal(WASHNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ItemDescription.
+     * @return the ItemDescription
+     */
+    public String getItemDescription() {
+        return (String) getAttributeInternal(ITEMDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute ItemDescription.
+     * @param value value to set the  ItemDescription
+     */
+    public void setItemDescription(String value) {
+        setAttributeInternal(ITEMDESCRIPTION, value);
     }
 
     /**
