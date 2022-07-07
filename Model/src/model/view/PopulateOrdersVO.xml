@@ -27,7 +27,8 @@
     <![CDATA[SELECT SV.POC_ID,
             SV.bpo_id,
             SV.LC_UNIT,
-              APPS.ORG_ID_TO_ORG_NAME(SV.LC_UNIT) LC_UNIT_NAME,  
+              APPS.ORG_ID_TO_ORG_NAME(SV.LC_UNIT) LC_UNIT_NAME, 
+             APPS.ORG_ID_TO_ORG_SHORT_NAME (SV.LC_UNIT) LC_UNIT_SHORT_NAME ,  
               
             SV.BUYER_ID,
                APPS.XX_OM_BUYER_NAME_FOR_ID(SV.BUYER_ID) BUYER_NAME ,
@@ -39,9 +40,7 @@
             SV.COLOR,
             SV.WASH_NAME,
             SV.ITEM_DESCRIPTION,
-            SV.VERSION_DATE ,
-             SV.LC_UNIT PRODUCTION_UNIT,
-              APPS.ORG_ID_TO_ORG_NAME(SV.LC_UNIT) PRODUCTION_UNIT_NAME               
+            SV.VERSION_DATE  
        FROM SP_ORDERS_V SV
       WHERE 1 = 1
       order by SV.poc_id desc,  SV.bpo_id]]>
@@ -101,6 +100,21 @@
     ColumnType="VARCHAR2"
     AliasName="LC_UNIT_NAME"
     Expression="LC_UNIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LcUnitShortName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LC_UNIT_SHORT_NAME"
+    Expression="LC_UNIT_SHORT_NAME"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
@@ -268,26 +282,6 @@
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewAttribute
-    Name="ProductionUnit"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="PRODUCTION_UNIT"
-    Expression="PRODUCTION_UNIT"
-    SQLType="NUMERIC"/>
-  <ViewAttribute
-    Name="ProductionUnitName"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="PRODUCTION_UNIT_NAME"
-    Expression="PRODUCTION_UNIT_NAME"
-    SQLType="VARCHAR"/>
   <ViewAttribute
     Name="SelectOrder"
     IsSelected="false"

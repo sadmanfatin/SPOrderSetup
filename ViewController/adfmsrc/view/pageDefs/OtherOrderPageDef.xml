@@ -8,6 +8,8 @@
     <iterator Binds="SpProjBookingOrderVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="SpProjBookingOrderVO1Iterator"/>
+    <iterator Binds="OrgVO1" RangeSize="10" DataControl="AppModuleDataControl"
+              id="OrgVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SpProjBookingOrderVO1Iterator" id="BpoId">
@@ -69,6 +71,16 @@
                      id="Productivity">
       <AttrNames>
         <Item Value="Productivity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OrgVO1Iterator" id="OrgId">
+      <AttrNames>
+        <Item Value="OrgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OrgVO1Iterator1" id="OrgName">
+      <AttrNames>
+        <Item Value="OrgName"/>
       </AttrNames>
     </attributeValues>
   </bindings>

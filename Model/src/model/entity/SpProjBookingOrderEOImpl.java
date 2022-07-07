@@ -626,6 +626,11 @@ public class SpProjBookingOrderEOImpl extends EntityImpl {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        
+        this.setColor("TBA");
+        this.setWash("TBA");
+        this.setBpo("TBA");
     }
 
     /**

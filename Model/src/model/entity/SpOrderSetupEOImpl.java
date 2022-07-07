@@ -48,16 +48,6 @@ public class SpOrderSetupEOImpl extends EntityImpl {
             }
         }
         ,
-        ItemId {
-            public Object get(SpOrderSetupEOImpl obj) {
-                return obj.getItemId();
-            }
-
-            public void put(SpOrderSetupEOImpl obj, Object value) {
-                obj.setItemId((Number)value);
-            }
-        }
-        ,
         OrderType {
             public Object get(SpOrderSetupEOImpl obj) {
                 return obj.getOrderType();
@@ -198,6 +188,16 @@ public class SpOrderSetupEOImpl extends EntityImpl {
             }
         }
         ,
+        ItemDescription {
+            public Object get(SpOrderSetupEOImpl obj) {
+                return obj.getItemDescription();
+            }
+
+            public void put(SpOrderSetupEOImpl obj, Object value) {
+                obj.setItemDescription((String)value);
+            }
+        }
+        ,
         SpOrderLearningCurveEO {
             public Object get(SpOrderSetupEOImpl obj) {
                 return obj.getSpOrderLearningCurveEO();
@@ -238,7 +238,6 @@ public class SpOrderSetupEOImpl extends EntityImpl {
 
     public static final int ORDERSETUPID = AttributesEnum.OrderSetupId.index();
     public static final int POCID = AttributesEnum.PocId.index();
-    public static final int ITEMID = AttributesEnum.ItemId.index();
     public static final int ORDERTYPE = AttributesEnum.OrderType.index();
     public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
     public static final int PRODUCTIVITY = AttributesEnum.Productivity.index();
@@ -253,6 +252,7 @@ public class SpOrderSetupEOImpl extends EntityImpl {
     public static final int SHIPDATE = AttributesEnum.Shipdate.index();
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int BPOID = AttributesEnum.BpoId.index();
+    public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
     public static final int SPORDERLEARNINGCURVEEO = AttributesEnum.SpOrderLearningCurveEO.index();
 
     /**
@@ -305,21 +305,6 @@ public class SpOrderSetupEOImpl extends EntityImpl {
         setAttributeInternal(POCID, value);
     }
 
-    /**
-     * Gets the attribute value for ItemId, using the alias name ItemId.
-     * @return the ItemId
-     */
-    public Number getItemId() {
-        return (Number)getAttributeInternal(ITEMID);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for ItemId.
-     * @param value value to set the ItemId
-     */
-    public void setItemId(Number value) {
-        setAttributeInternal(ITEMID, value);
-    }
 
     /**
      * Gets the attribute value for OrderType, using the alias name OrderType.
@@ -544,6 +529,22 @@ public class SpOrderSetupEOImpl extends EntityImpl {
      */
     public void setBpoId(String value) {
         setAttributeInternal(BPOID, value);
+    }
+
+    /**
+     * Gets the attribute value for ItemDescription, using the alias name ItemDescription.
+     * @return the ItemDescription
+     */
+    public String getItemDescription() {
+        return (String)getAttributeInternal(ITEMDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ItemDescription.
+     * @param value value to set the ItemDescription
+     */
+    public void setItemDescription(String value) {
+        setAttributeInternal(ITEMDESCRIPTION, value);
     }
 
     /**

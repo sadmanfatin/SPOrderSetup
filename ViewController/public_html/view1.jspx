@@ -34,7 +34,7 @@
                                       text="Save"
                                       id="cb5"/>
                     <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
-                                      text="add other order"
+                                      text="Add Unconfirmed Order"
                                       disabled="#{!bindings.CreateInsert2.enabled}"
                                       id="cb8" action="add other order"/>
                   </af:toolbar>
@@ -204,20 +204,16 @@
                       <f:validator binding="#{row.bindings.WashName.validator}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column sortProperty="ItemId" filterable="true"
-                             sortable="true"
-                             headerText="#{bindings.SpOrderSetupVO1.hints.ItemId.label}"
+                  <af:column headerText="#{bindings.SpOrderSetupVO1.hints.ItemDescription.label}"
                              id="c2" align="center">
-                    <af:inputText value="#{row.bindings.ItemId.inputValue}"
-                                  label="#{bindings.SpOrderSetupVO1.hints.ItemId.label}"
-                                  required="#{bindings.SpOrderSetupVO1.hints.ItemId.mandatory}"
-                                  columns="#{bindings.SpOrderSetupVO1.hints.ItemId.displayWidth}"
-                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.ItemId.precision}"
-                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.ItemId.tooltip}"
+                    <af:inputText value="#{row.bindings.ItemDescription.inputValue}"
+                                  label="#{bindings.SpOrderSetupVO1.hints.ItemDescription.label}"
+                                  required="#{bindings.SpOrderSetupVO1.hints.ItemDescription.mandatory}"
+                                  columns="#{bindings.SpOrderSetupVO1.hints.ItemDescription.displayWidth}"
+                                  maximumLength="#{bindings.SpOrderSetupVO1.hints.ItemDescription.precision}"
+                                  shortDesc="#{bindings.SpOrderSetupVO1.hints.ItemDescription.tooltip}"
                                   id="it6" readOnly="true">
-                      <f:validator binding="#{row.bindings.ItemId.validator}"/>
-                      <af:convertNumber groupingUsed="false"
-                                        pattern="#{bindings.SpOrderSetupVO1.hints.ItemId.format}"/>
+                      <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
                     </af:inputText>
                   </af:column>
                   <af:column headerText="#{bindings.SpOrderSetupVO1.hints.Shipdate.label}"
@@ -350,11 +346,11 @@
                     <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
                                       text="Add"
                                       disabled="#{!bindings.CreateInsert1.enabled}"
-                                      id="cb3"/>
+                                      id="cb3" visible="true"/>
                     <af:commandButton actionListener="#{bindings.Delete1.execute}"
                                       text="Delete"
                                       disabled="#{!bindings.Delete1.enabled}"
-                                      id="cb4"/>
+                                      id="cb4" visible="true"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -414,7 +410,7 @@
                                   columns="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.displayWidth}"
                                   maximumLength="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.precision}"
                                   shortDesc="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.tooltip}"
-                                  id="it11" readOnly="false">
+                                  id="it11" readOnly="true">
                       <f:validator binding="#{row.bindings.DayNo.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpOrderLearningCurveVO1.hints.DayNo.format}"/>
@@ -475,7 +471,7 @@
               <f:facet name="toolbar"/>
               <f:facet name="legend"/>
               <f:facet name="info"/>
-              <af:panelCollection id="pc3" inlineStyle="width:1200.0px;">
+              <af:panelCollection id="pc3" inlineStyle="width:1250.0px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar"/>
                 <f:facet name="statusbar"/>
@@ -492,7 +488,7 @@
                           selectionListener="#{bindings.PopulateOrdersVO1.collectionModel.makeCurrent}"
                           rowSelection="single" id="t5">
                   <af:column headerText="#{bindings.PopulateOrdersVO1.hints.SelectOrder.label}"
-                             id="c31" width="60">
+                             id="c31" width="50">
                     <af:selectBooleanCheckbox value="#{row.bindings.SelectOrder.inputValue}"
                                               label="#{row.bindings.SelectOrder.label}"
                                               shortDesc="#{bindings.PopulateOrdersVO1.hints.SelectOrder.tooltip}"
@@ -501,7 +497,7 @@
                   <af:column sortProperty="PocId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.PopulateOrdersVO1.hints.PocId.label}"
-                             id="c22">
+                             id="c22" width="50">
                     <af:inputText value="#{row.bindings.PocId.inputValue}"
                                   label="#{bindings.PopulateOrdersVO1.hints.PocId.label}"
                                   required="#{bindings.PopulateOrdersVO1.hints.PocId.mandatory}"
@@ -517,7 +513,7 @@
                   <af:column sortProperty="BpoId" filterable="true"
                              sortable="true"
                              headerText="#{bindings.PopulateOrdersVO1.hints.BpoId.label}"
-                             id="c25">
+                             id="c25" width="50">
                     <af:inputText value="#{row.bindings.BpoId.inputValue}"
                                   label="#{bindings.PopulateOrdersVO1.hints.BpoId.label}"
                                   required="#{bindings.PopulateOrdersVO1.hints.BpoId.mandatory}"
@@ -533,7 +529,7 @@
                   <af:column sortProperty="LcUnit" filterable="true"
                              sortable="true"
                              headerText="#{bindings.PopulateOrdersVO1.hints.LcUnit.label}"
-                             id="c26">
+                             id="c26" width="60">
                     <af:inputText value="#{row.bindings.LcUnit.inputValue}"
                                   label="#{bindings.PopulateOrdersVO1.hints.LcUnit.label}"
                                   required="#{bindings.PopulateOrdersVO1.hints.LcUnit.mandatory}"
@@ -544,6 +540,21 @@
                       <f:validator binding="#{row.bindings.LcUnit.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.PopulateOrdersVO1.hints.LcUnit.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="LC Unit"
+                             id="c40" align="center" sortable="true"
+                             filterable="true" width="60"
+                             sortProperty="LcUnitShortName"
+                             filterFeatures="caseInsensitive">
+                    <af:inputText value="#{row.bindings.LcUnitShortName.inputValue}"
+                                  label="#{bindings.PopulateOrdersVO1.hints.LcUnitShortName.label}"
+                                  required="#{bindings.PopulateOrdersVO1.hints.LcUnitShortName.mandatory}"
+                                  columns="#{bindings.PopulateOrdersVO1.hints.LcUnitShortName.displayWidth}"
+                                  maximumLength="#{bindings.PopulateOrdersVO1.hints.LcUnitShortName.precision}"
+                                  shortDesc="#{bindings.PopulateOrdersVO1.hints.LcUnitShortName.tooltip}"
+                                  id="it32">
+                      <f:validator binding="#{row.bindings.LcUnitShortName.validator}"/>
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="BuyerId" filterable="true"
@@ -607,7 +618,7 @@
                   <af:column sortProperty="OrderQty" filterable="true"
                              sortable="true"
                              headerText="#{bindings.PopulateOrdersVO1.hints.OrderQty.label}"
-                             id="c29">
+                             id="c29" width="60">
                     <af:inputText value="#{row.bindings.OrderQty.inputValue}"
                                   label="#{bindings.PopulateOrdersVO1.hints.OrderQty.label}"
                                   required="#{bindings.PopulateOrdersVO1.hints.OrderQty.mandatory}"
@@ -663,6 +674,19 @@
                                   shortDesc="#{bindings.PopulateOrdersVO1.hints.WashName.tooltip}"
                                   id="it19">
                       <f:validator binding="#{row.bindings.WashName.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.PopulateOrdersVO1.hints.ItemDescription.label}"
+                             id="c39" align="center" sortable="true"
+                             filterable="true">
+                    <af:inputText value="#{row.bindings.ItemDescription.inputValue}"
+                                  label="#{bindings.PopulateOrdersVO1.hints.ItemDescription.label}"
+                                  required="#{bindings.PopulateOrdersVO1.hints.ItemDescription.mandatory}"
+                                  columns="#{bindings.PopulateOrdersVO1.hints.ItemDescription.displayWidth}"
+                                  maximumLength="#{bindings.PopulateOrdersVO1.hints.ItemDescription.precision}"
+                                  shortDesc="#{bindings.PopulateOrdersVO1.hints.ItemDescription.tooltip}"
+                                  id="it31">
+                      <f:validator binding="#{row.bindings.ItemDescription.validator}"/>
                     </af:inputText>
                   </af:column>
                   <af:column sortProperty="VersionDate" filterable="true"

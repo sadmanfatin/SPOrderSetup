@@ -55,6 +55,16 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        LcUnitShortName {
+            public Object get(PopulateOrdersVORowImpl obj) {
+                return obj.getLcUnitShortName();
+            }
+
+            public void put(PopulateOrdersVORowImpl obj, Object value) {
+                obj.setLcUnitShortName((String)value);
+            }
+        }
+        ,
         BuyerId {
             public Object get(PopulateOrdersVORowImpl obj) {
                 return obj.getBuyerId();
@@ -165,26 +175,6 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        ProductionUnit {
-            public Object get(PopulateOrdersVORowImpl obj) {
-                return obj.getProductionUnit();
-            }
-
-            public void put(PopulateOrdersVORowImpl obj, Object value) {
-                obj.setProductionUnit((Number)value);
-            }
-        }
-        ,
-        ProductionUnitName {
-            public Object get(PopulateOrdersVORowImpl obj) {
-                return obj.getProductionUnitName();
-            }
-
-            public void put(PopulateOrdersVORowImpl obj, Object value) {
-                obj.setProductionUnitName((String)value);
-            }
-        }
-        ,
         SelectOrder {
             public Object get(PopulateOrdersVORowImpl obj) {
                 return obj.getSelectOrder();
@@ -227,6 +217,7 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
     public static final int BPOID = AttributesEnum.BpoId.index();
     public static final int LCUNIT = AttributesEnum.LcUnit.index();
     public static final int LCUNITNAME = AttributesEnum.LcUnitName.index();
+    public static final int LCUNITSHORTNAME = AttributesEnum.LcUnitShortName.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int BUYERNAME = AttributesEnum.BuyerName.index();
     public static final int SEASON = AttributesEnum.Season.index();
@@ -238,8 +229,6 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
     public static final int WASHNAME = AttributesEnum.WashName.index();
     public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
     public static final int VERSIONDATE = AttributesEnum.VersionDate.index();
-    public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
-    public static final int PRODUCTIONUNITNAME = AttributesEnum.ProductionUnitName.index();
     public static final int SELECTORDER = AttributesEnum.SelectOrder.index();
 
     /**
@@ -310,6 +299,22 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
      */
     public void setLcUnitName(String value) {
         setAttributeInternal(LCUNITNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute LcUnitShortName.
+     * @return the LcUnitShortName
+     */
+    public String getLcUnitShortName() {
+        return (String) getAttributeInternal(LCUNITSHORTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute LcUnitShortName.
+     * @param value value to set the  LcUnitShortName
+     */
+    public void setLcUnitShortName(String value) {
+        setAttributeInternal(LCUNITSHORTNAME, value);
     }
 
     /**
@@ -505,37 +510,6 @@ public class PopulateOrdersVORowImpl extends ViewRowImpl {
         setAttributeInternal(SELECTORDER, value);
     }
 
-    /**
-     * Gets the attribute value for the calculated attribute ProductionUnit.
-     * @return the ProductionUnit
-     */
-    public Number getProductionUnit() {
-        return (Number) getAttributeInternal(PRODUCTIONUNIT);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute ProductionUnit.
-     * @param value value to set the  ProductionUnit
-     */
-    public void setProductionUnit(Number value) {
-        setAttributeInternal(PRODUCTIONUNIT, value);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute ProductionUnitName.
-     * @return the ProductionUnitName
-     */
-    public String getProductionUnitName() {
-        return (String) getAttributeInternal(PRODUCTIONUNITNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute ProductionUnitName.
-     * @param value value to set the  ProductionUnitName
-     */
-    public void setProductionUnitName(String value) {
-        setAttributeInternal(PRODUCTIONUNITNAME, value);
-    }
 
     /**
      * getAttrInvokeAccessor: generated method. Do not modify.

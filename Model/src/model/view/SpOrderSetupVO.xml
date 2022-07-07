@@ -54,7 +54,6 @@
       ORDERS.LC_UNIT,  
          APPS.ORG_ID_TO_ORG_NAME(ORDERS.LC_UNIT) LC_UNIT_NAME,    
        SpOrderSetupEO.POC_ID, 
-       SpOrderSetupEO.ITEM_ID, 
        SpOrderSetupEO.ORDER_TYPE, 
        SpOrderSetupEO.PRODUCTION_UNIT, 
        APPS.ORG_ID_TO_ORG_NAME(SpOrderSetupEO.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME, 
@@ -71,6 +70,7 @@
        SpOrderSetupEO.ORDER_QTY,
        SpOrderSetupEO.SHIPDATE,
        SpOrderSetupEO.BPO_ID,
+       SpOrderSetupEO.ITEM_DESCRIPTION, 
        ORDERS.BPO, 
        ORDERS.BUYER_ID, 
        APPS.XX_OM_BUYER_NAME_FOR_ID(ORDERS.BUYER_ID) BUYER_NAME ,
@@ -128,12 +128,6 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
     EntityAttrName="PocId"
     EntityUsage="SpOrderSetupEO"
     AliasName="POC_ID"/>
-  <ViewAttribute
-    Name="ItemId"
-    PrecisionRule="true"
-    EntityAttrName="ItemId"
-    EntityUsage="SpOrderSetupEO"
-    AliasName="ITEM_ID"/>
   <ViewAttribute
     Name="OrderType"
     PrecisionRule="true"
@@ -253,6 +247,12 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
     EntityAttrName="BpoId"
     EntityUsage="SpOrderSetupEO"
     AliasName="BPO_ID"/>
+  <ViewAttribute
+    Name="ItemDescription"
+    PrecisionRule="true"
+    EntityAttrName="ItemDescription"
+    EntityUsage="SpOrderSetupEO"
+    AliasName="ITEM_DESCRIPTION"/>
   <ViewAttribute
     Name="Bpo"
     IsPersistent="false"
@@ -380,6 +380,11 @@ and SpOrderSetupEO.BPO_ID = ORDERS.BPO_ID]]>
   <ViewLinkAccessor
     Name="SpOrderLearningCurveVO"
     ViewLink="model.view.SpOrderLearningCurveR01Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SpDefaultLearningCurveVO"
+    ViewLink="model.view.OrderSetupVO_vs_DefaultLearningCurcveVO_VL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

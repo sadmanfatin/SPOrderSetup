@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import model.service.common.AppModule;
 
 import model.view.PopulateOrdersVOImpl;
+import model.view.SpDefaultLearningCurveVOImpl;
 import model.view.SpOrderLearningCurveVOImpl;
 import model.view.SpOrderSetupVOImpl;
 
@@ -132,5 +133,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getItemDescriptionVO_vs_DefaultLearningCurve_VL1() {
         return (ViewLinkImpl)findViewLink("ItemDescriptionVO_vs_DefaultLearningCurve_VL1");
+    }
+
+    /**
+     * Container's getter for SpDefaultLearningCurveVO2.
+     * @return SpDefaultLearningCurveVO2
+     */
+    public SpDefaultLearningCurveVOImpl getSpDefaultLearningCurveVO2() {
+        return (SpDefaultLearningCurveVOImpl)findViewObject("SpDefaultLearningCurveVO2");
+    }
+
+    /**
+     * Container's getter for OrderSetupVO_vs_DefaultLearningCurcveVO_VL1.
+     * @return OrderSetupVO_vs_DefaultLearningCurcveVO_VL1
+     */
+    public ViewLinkImpl getOrderSetupVO_vs_DefaultLearningCurcveVO_VL1() {
+        return (ViewLinkImpl)findViewLink("OrderSetupVO_vs_DefaultLearningCurcveVO_VL1");
     }
 }

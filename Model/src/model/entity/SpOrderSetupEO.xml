@@ -42,17 +42,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="ItemId"
-    ColumnName="ITEM_ID"
-    SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    TableName="SP_ORDER_SETUP">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="OrderType"
     Precision="100"
     ColumnName="ORDER_TYPE"
@@ -209,6 +198,18 @@
       <Attr Name="_DisplaySize" Value="200"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ItemDescription"
+    Precision="100"
+    ColumnName="ITEM_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SP_ORDER_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SpOrderLearningCurveEO"
     Association="model.entity.SpOrderLearningCurveR01Assoc"
@@ -232,5 +233,6 @@
       <Attr Name="_isUnique" Value="true"/>
       <Attr Name="_DBObjectName" Value="SP_ORDER_SETUP_U01"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
 </Entity>

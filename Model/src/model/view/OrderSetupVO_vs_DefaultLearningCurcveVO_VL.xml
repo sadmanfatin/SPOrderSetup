@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="ItemDescriptionVO_vs_DefaultLearningCurve_VL"
+  Name="OrderSetupVO_vs_DefaultLearningCurcveVO_VL"
   Version="11.1.1.62.29"
   InheritPersonalization="true">
   <DesignTime>
@@ -12,23 +12,21 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.ItemDescriptionVO_vs_DefaultLearningCurve_VL_LABEL"/>
+        ResId="model.view.OrderSetupVO_vs_DefaultLearningCurcveVO_VL_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
-    Name="ItemDescriptionVO"
+    Name="SpOrderSetupVO"
     Cardinality="1"
-    Owner="model.view.ItemDescriptionVO"
+    Owner="model.view.SpOrderSetupVO"
     Source="true">
     <DesignTime>
-      <Attr Name="_finderName" Value="ItemDescriptionVO"/>
+      <Attr Name="_finderName" Value="SpOrderSetupVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
-      <Attr Name="_accessor" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.ItemDescriptionVO.OrgId"/>
-      <Item Value="model.view.ItemDescriptionVO.ItemId"/>
-      <Item Value="model.view.ItemDescriptionVO.ItemDescription"/>
+      <Item Value="model.view.SpOrderSetupVO.OrgId"/>
+      <Item Value="model.view.SpOrderSetupVO.ItemDescription"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -41,7 +39,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.view.SpDefaultLearningCurveVO.OrgId"/>
-      <Item Value="model.view.SpDefaultLearningCurveVO.ItemId"/>
       <Item Value="model.view.SpDefaultLearningCurveVO.ItemDescription"/>
     </AttrArray>
   </ViewLinkDefEnd>

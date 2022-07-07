@@ -22,9 +22,7 @@
   <SQLQuery>
     <![CDATA[select 'Projection' order_type  from dual
 union
-select 'Booking' order_type from dual
-union 
-select 'Confirmed' order_type from dual]]>
+select 'Booking' order_type from dual]]>
   </SQLQuery>
   <ViewAttribute
     Name="OrderType"

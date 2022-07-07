@@ -38,7 +38,6 @@
           <Item Value="OrderSetupId"/>
           <Item Value="BpoId"/>
           <Item Value="PocId"/>
-          <Item Value="ItemId"/>
           <Item Value="OrderType"/>
           <Item Value="ProductionUnit"/>
           <Item Value="Productivity"/>
@@ -55,6 +54,7 @@
           <Item Value="BuyerId"/>
           <Item Value="Bpo"/>
           <Item Value="ProductionUnitShortName"/>
+          <Item Value="ItemDescription"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -112,6 +112,8 @@
           <Item Value="WashName"/>
           <Item Value="VersionDate"/>
           <Item Value="SelectOrder" Binds="SelectOrder"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="LcUnitShortName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

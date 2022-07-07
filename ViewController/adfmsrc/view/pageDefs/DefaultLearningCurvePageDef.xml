@@ -11,6 +11,8 @@
     <iterator Binds="SpDefaultLearningCurveVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="SpDefaultLearningCurveVO1Iterator"/>
+    <iterator Binds="OrgVO1" RangeSize="10" DataControl="AppModuleDataControl"
+              id="OrgVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ItemDescriptionVO1Iterator" id="OrgId">
@@ -45,5 +47,10 @@
         <Item Value="ItemDescription"/>
       </AttrNames>
     </list>
+    <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
+      <AttrNames>
+        <Item Value="OrgName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

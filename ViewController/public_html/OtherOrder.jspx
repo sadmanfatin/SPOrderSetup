@@ -53,6 +53,14 @@
                                     id="soc4" autoSubmit="true">
                   <f:selectItems value="#{bindings.BuyerName.items}" id="si4"/>
                 </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.Season.inputValue}"
+                                    label="#{bindings.Season.label}"
+                                    required="#{bindings.Season.hints.mandatory}"
+                                    shortDesc="#{bindings.Season.hints.tooltip}"
+                                    id="soc1" autoSubmit="true"
+                                    partialTriggers="soc4">
+                  <f:selectItems value="#{bindings.Season.items}" id="si1"/>
+                </af:selectOneChoice>
                 <af:inputText value="#{bindings.Style.inputValue}"
                               label="#{bindings.Style.hints.label}"
                               required="#{bindings.Style.hints.mandatory}"
@@ -62,14 +70,6 @@
                               id="it4">
                   <f:validator binding="#{bindings.Style.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.Season.inputValue}"
-                                    label="#{bindings.Season.label}"
-                                    required="#{bindings.Season.hints.mandatory}"
-                                    shortDesc="#{bindings.Season.hints.tooltip}"
-                                    id="soc1" autoSubmit="true"
-                                    partialTriggers="soc4">
-                  <f:selectItems value="#{bindings.Season.items}" id="si1"/>
-                </af:selectOneChoice>
                 <af:inputText value="#{bindings.Color.inputValue}"
                               label="#{bindings.Color.hints.label}"
                               required="#{bindings.Color.hints.mandatory}"
@@ -171,6 +171,27 @@
               </af:panelFormLayout>
             </af:panelHeader>
             <!-- id="af_one_column_stretched"   -->
+          </f:facet>
+          <f:facet name="top">
+           <af:panelGroupLayout layout="vertical"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl2">
+              <af:panelHeader text="Stitching Planning -  Order Setup - #{bindings.OrgName.inputValue}"
+                              id="ph2" styleClass="customLayoutStyle">
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <af:inputText value="#{bindings.OrgId.inputValue}"
+                              required="#{bindings.OrgId.hints.mandatory}"
+                              columns="#{bindings.OrgId.hints.displayWidth}"
+                              maximumLength="#{bindings.OrgId.hints.precision}"
+                              shortDesc="#{bindings.OrgId.hints.tooltip}"
+                              id="it51" visible="false">
+                  <f:validator binding="#{bindings.OrgId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.OrgId.format}"/>
+                </af:inputText>
+              </af:panelHeader>
+             </af:panelGroupLayout>
           </f:facet>
         </af:panelStretchLayout>
       </af:form>

@@ -31,15 +31,15 @@
                                  id="si1"/>
                 </af:selectOneChoice>
                 <af:panelGroupLayout id="pgl2">
-                  <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
-                                    text="Add"
+                  <af:commandButton actionListener="#{ManagedBean.populateDefaultLearningDays}"
+                                    text="Populate Days"
                                     disabled="#{!bindings.CreateInsert.enabled}"
                                     id="cb1"/>
-                  <af:spacer width="20" height="10" id="s2"/>
+                  <af:spacer width="20" height="10" id="s2" visible="false"/>
                   <af:commandButton actionListener="#{bindings.Delete.execute}"
                                     text="Delete"
                                     disabled="#{!bindings.Delete.enabled}"
-                                    id="cb2"/>
+                                    id="cb2" visible="false"/>
                   <af:spacer width="20" height="10" id="s3"/>
                   <af:commandButton actionListener="#{bindings.Commit.execute}"
                                     text="Save"
@@ -81,7 +81,7 @@
                                   columns="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.displayWidth}"
                                   maximumLength="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.precision}"
                                   shortDesc="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.tooltip}"
-                                  id="it5">
+                                  id="it5" readOnly="true">
                       <f:validator binding="#{row.bindings.DayNo.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.SpDefaultLearningCurveVO1.hints.DayNo.format}"/>
@@ -147,6 +147,27 @@
               </af:panelHeader>
             </af:panelGroupLayout>
             <!-- id="af_one_column_stretched"   -->
+          </f:facet>
+          <f:facet name="top">
+   <af:panelGroupLayout layout="vertical"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl3">
+              <af:panelHeader text="Stitching Planning -  Order Setup - #{bindings.OrgName.inputValue}"
+                              id="ph2" styleClass="customLayoutStyle">
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <af:inputText value="#{bindings.OrgId.inputValue}"
+                              required="#{bindings.OrgId.hints.mandatory}"
+                              columns="#{bindings.OrgId.hints.displayWidth}"
+                              maximumLength="#{bindings.OrgId.hints.precision}"
+                              shortDesc="#{bindings.OrgId.hints.tooltip}"
+                              id="it51" visible="false">
+                  <f:validator binding="#{bindings.OrgId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.OrgId.format}"/>
+                </af:inputText>
+              </af:panelHeader>
+             </af:panelGroupLayout>
           </f:facet>
         </af:panelStretchLayout>
       </af:form>

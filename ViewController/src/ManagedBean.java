@@ -14,6 +14,7 @@ import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowSet;
 import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Number;
 
@@ -42,6 +43,7 @@ public class ManagedBean {
         
             populateOrders();
             
+      
           AdfFacesContext.getCurrentInstance().addPartialTarget(this.getOrderSetupTable());
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.getLearningCurveTable());
             
@@ -89,10 +91,12 @@ public class ManagedBean {
                     spOrderSetupRow.setWashName(pocOrdersRow.getWashName());
                     spOrderSetupRow.setLcUnit(pocOrdersRow.getLcUnit());
                     spOrderSetupRow.setLcUnitName(pocOrdersRow.getLcUnitName());
-                    spOrderSetupRow.setProductionUnit(pocOrdersRow.getProductionUnit());
-                    spOrderSetupRow.setProductionUnitName(pocOrdersRow.getProductionUnitName());
+                    spOrderSetupRow.setProductionUnit(pocOrdersRow.getLcUnit());
+                    spOrderSetupRow.setProductionUnitName(pocOrdersRow.getLcUnitName());
+                    spOrderSetupRow.setProductionUnitShortName(pocOrdersRow.getLcUnitShortName());
                     spOrderSetupRow.setOrderQty(pocOrdersRow.getOrderQty());
                     spOrderSetupRow.setShipdate(pocOrdersRow.getShipdate()); 
+                    spOrderSetupRow.setItemDescription(pocOrdersRow.getItemDescription());
                     spOrderSetupRow.setOrderType("Confirmed");
                     spOrderSetupRow.setProductivity(new Number(100));
                     
@@ -102,6 +106,9 @@ public class ManagedBean {
                  //  populateStyleWiseProcesses(pocOrdersRow.getSystemId() , spOrderSetupRow.getOrgId().toString() );
                 
                 //   populateProcesses(pocOrdersRow.getSectionId(),   new Number(pocOrdersRow.getOrgId())   );
+                 populateLearningCurve();
+                    
+                    
                 }
                     
             } catch (Exception e) {
@@ -142,6 +149,7 @@ public class ManagedBean {
         orderSetupVoRow.setAttribute("LcUnitName",otherOrderVoCurrentRow.getAttribute("LcUnitName"));
         orderSetupVoRow.setAttribute("ProductionUnit",otherOrderVoCurrentRow.getAttribute("LcUnit"));
         orderSetupVoRow.setAttribute("ProductionUnitName",otherOrderVoCurrentRow.getAttribute("LcUnitName"));
+        orderSetupVoRow.setAttribute("ProductionUnitShortName",otherOrderVoCurrentRow.getAttribute("LcUnitShortName"));
         orderSetupVoRow.setAttribute("OrderQty",otherOrderVoCurrentRow.getAttribute("OrderQty"));  
         orderSetupVoRow.setAttribute("OrderType",otherOrderVoCurrentRow.getAttribute("OrderType"));
         orderSetupVoRow.setAttribute("Shipdate",otherOrderVoCurrentRow.getAttribute("Shipdate"));  
@@ -197,5 +205,49 @@ public class ManagedBean {
 
     public RichTable getLearningCurveTable() {
         return learningCurveTable;
+    }
+
+    public void populateDefaultLearningDays(ActionEvent actionEvent) {
+        // Add event code here...
+        ViewObject ItemDescriptionVo  =  appM.getItemDescriptionVO1();
+        RowSet defaultLearningCurveRs = (RowSet)ItemDescriptionVo.getCurrentRow().getAttribute("SpDefaultLearningCurveVO");
+        int rowCount = defaultLearningCurveRs.getRowCount();
+        
+        ViewObject defaultLearningCurveVo = appM.getSpDefaultLearningCurveVO1();
+        Row defaultLearningCurveVoRow = null;
+        if(rowCount == 7){
+            return ;
+        }
+        
+        for (int i = rowCount+1; i <= 7;i++){
+            defaultLearningCurveVoRow  =  defaultLearningCurveVo.createRow();
+            defaultLearningCurveVoRow.setAttribute("DayNo", i);
+            defaultLearningCurveVo.insertRow(defaultLearningCurveVoRow);
+        }           
+    }
+
+    private void populateLearningCurve() {
+        
+        ViewObject orderSetupVo = appM.getSpOrderSetupVO1();
+        ViewObject orderLearningCurveVo = appM.getSpOrderLearningCurveVO1();
+        ViewObject defaultLearningCurveVo2 = appM.getSpDefaultLearningCurveVO2();
+      //  defaultLearningCurveVo2.executeQuery();
+       //System.out.println("=================  "+ orderSetupVo.getCurrentRow().getAttribute("Bpo"));
+        
+        RowSet rs = (RowSet)orderSetupVo.getCurrentRow().getAttribute("SpDefaultLearningCurveVO");
+        
+           // System.out.println(" =================="+ rs.getRowCount());
+        
+        Row learningCurveRow = null;
+        Row[] defaultLearningCurveRows = rs.getAllRowsInRange();
+        for(Row defaultLearningCurveRow : defaultLearningCurveRows ){
+            learningCurveRow  = orderLearningCurveVo.createRow();
+            learningCurveRow.setAttribute("DayNo", defaultLearningCurveRow.getAttribute("DayNo"));
+            learningCurveRow.setAttribute("LearningPercentage", defaultLearningCurveRow.getAttribute("LearningPercentage"));
+            orderLearningCurveVo.insertRow(learningCurveRow);
+        }
+        
+        
+            
     }
 }

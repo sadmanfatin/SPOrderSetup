@@ -60,16 +60,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
-        ItemId {
-            public Object get(SpOrderSetupVORowImpl obj) {
-                return obj.getItemId();
-            }
-
-            public void put(SpOrderSetupVORowImpl obj, Object value) {
-                obj.setItemId((Number)value);
-            }
-        }
-        ,
         OrderType {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getOrderType();
@@ -230,6 +220,16 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ItemDescription {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getItemDescription();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setItemDescription((String)value);
+            }
+        }
+        ,
         Bpo {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getBpo();
@@ -330,6 +330,16 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        SpDefaultLearningCurveVO {
+            public Object get(SpOrderSetupVORowImpl obj) {
+                return obj.getSpDefaultLearningCurveVO();
+            }
+
+            public void put(SpOrderSetupVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
         OrgLOV1 {
             public Object get(SpOrderSetupVORowImpl obj) {
                 return obj.getOrgLOV1();
@@ -382,7 +392,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int LCUNIT = AttributesEnum.LcUnit.index();
     public static final int LCUNITNAME = AttributesEnum.LcUnitName.index();
     public static final int POCID = AttributesEnum.PocId.index();
-    public static final int ITEMID = AttributesEnum.ItemId.index();
     public static final int ORDERTYPE = AttributesEnum.OrderType.index();
     public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
     public static final int PRODUCTIONUNITNAME = AttributesEnum.ProductionUnitName.index();
@@ -399,6 +408,7 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int SHIPDATE = AttributesEnum.Shipdate.index();
     public static final int BPOID = AttributesEnum.BpoId.index();
+    public static final int ITEMDESCRIPTION = AttributesEnum.ItemDescription.index();
     public static final int BPO = AttributesEnum.Bpo.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int BUYERNAME = AttributesEnum.BuyerName.index();
@@ -409,6 +419,7 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     public static final int CURRENTSHIPDATE = AttributesEnum.CurrentShipdate.index();
     public static final int CURRENTORDERQTY = AttributesEnum.CurrentOrderQty.index();
     public static final int SPORDERLEARNINGCURVEVO = AttributesEnum.SpOrderLearningCurveVO.index();
+    public static final int SPDEFAULTLEARNINGCURVEVO = AttributesEnum.SpDefaultLearningCurveVO.index();
     public static final int ORGLOV1 = AttributesEnum.OrgLOV1.index();
     public static final int PRODUCTIONUNITLOV1 = AttributesEnum.ProductionUnitLOV1.index();
 
@@ -522,21 +533,6 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
         setAttributeInternal(POCID, value);
     }
 
-    /**
-     * Gets the attribute value for ITEM_ID using the alias name ItemId.
-     * @return the ITEM_ID
-     */
-    public Number getItemId() {
-        return (Number) getAttributeInternal(ITEMID);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for ITEM_ID using the alias name ItemId.
-     * @param value value to set the ITEM_ID
-     */
-    public void setItemId(Number value) {
-        setAttributeInternal(ITEMID, value);
-    }
 
     /**
      * Gets the attribute value for ORDER_TYPE using the alias name OrderType.
@@ -876,6 +872,22 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for ITEM_DESCRIPTION using the alias name ItemDescription.
+     * @return the ITEM_DESCRIPTION
+     */
+    public String getItemDescription() {
+        return (String) getAttributeInternal(ITEMDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ITEM_DESCRIPTION using the alias name ItemDescription.
+     * @param value value to set the ITEM_DESCRIPTION
+     */
+    public void setItemDescription(String value) {
+        setAttributeInternal(ITEMDESCRIPTION, value);
+    }
+
+    /**
      * Gets the attribute value for ORDER_QTY using the alias name OrderQty.
      * @return the ORDER_QTY
      */
@@ -912,6 +924,13 @@ public class SpOrderSetupVORowImpl extends ViewRowImpl {
      */
     public RowIterator getSpOrderLearningCurveVO() {
         return (RowIterator)getAttributeInternal(SPORDERLEARNINGCURVEVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SpDefaultLearningCurveVO.
+     */
+    public RowIterator getSpDefaultLearningCurveVO() {
+        return (RowIterator)getAttributeInternal(SPDEFAULTLEARNINGCURVEVO);
     }
 
     /**
